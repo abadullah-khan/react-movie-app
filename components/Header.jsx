@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { getSearchedMovieApi } from "../Slices/SearchSlice";
-// import { clearingList } from "../Slices/MoviesSlice";
+import { BarLoader } from "react-spinners";
 
 const Header = () => {
   const dispatch = useDispatch();
-  // const { MoviesList } = useSelect((state) => state.movies);
+  const moviesLoading = useSelector((state) => state.movies.isLoading);
+  const tvShowsLoading = useSelector((state) => state.tvShows.isLoading);
   const [query, setQuery] = useState("");
   const [moviesTypeVisible, setMoviesTypeVisible] = useState(false);
   const [seriesTypeVisible, setSeriesTypeVisible] = useState(false);
@@ -78,6 +79,9 @@ const Header = () => {
           </span>
         </div>
       </div>
+      {(moviesLoading || tvShowsLoading) && (
+        <BarLoader width={"100%"} color="blue" />
+      )}
     </>
   );
 };

@@ -1,26 +1,33 @@
 import React from "react";
 import { useEffect } from "react";
+import InfiniteScroll from "react-infinite-scroll-component";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import { getTvShowsApi } from "../../Slices/TvShowsSlice";
+import { getTvShowsApi, resetState } from "../../Slices/TvShowsSlice";
 import { Card } from "../Card";
 
 const TvShows = () => {
   const dispatch = useDispatch();
   const { tvShows_Type } = useParams();
-  const { TvShowsList } = useSelector((state) => state.tvShows);
+  const { TvShowsList, page } = useSelector((state) => state.tvShows);
   useEffect(() => {
-    dispatch(getTvShowsApi(tvShows_Type));
-  });
+    dispatch(resetState());
+    dispatch(getTvShowsApi(tvShows_Type, page));
+  }, []);
+  const loadMore = () => {
+    dispatch(getTvShowsApi(tvShows_Type, page));
+  };
   return (
     <>
-      <div className="tvShowsContainer">
-        <div className="tvShowsWrapper">
-          {TvShowsList.map((tvShow) => (
-            <Card item={tvShow} />
-          ))}
+      <InfiniteScroll dataLength={TvShowsList.length} next={loadMore}>
+        <div className="tvShowsContainer">
+          <div className="tvShowsWrapper">
+            {TvShowsList.map((tvShow) => (
+              <Card item={tvShow} key={tvShow.id} />
+            ))}
+          </div>
         </div>
-      </div>
+      </InfiniteScroll>
     </>
   );
 };

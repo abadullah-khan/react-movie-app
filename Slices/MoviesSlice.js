@@ -4,17 +4,21 @@ const MoviesSlice = createSlice({
   name: "movies",
   initialState: {
     MoviesList: [],
+    isLoading: false,
+    page: 1,
   },
   reducers: {
-    getMoviesApi(movies_type) {
-      return movies_type;
+    getMoviesApi(state) {
+      state.isLoading = true;
     },
     setMoviesApi(state, action) {
-      // state.MoviesList = [];
+      state.isLoading = false;
       state.MoviesList.push(...action.payload.movies);
       state.MoviesList.map((movie) => (movie.media_type = "movie"));
+      state.page += 1;
     },
     resetState(state) {
+      state.page = 1;
       state.MoviesList = [];
     },
   },

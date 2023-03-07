@@ -4,17 +4,24 @@ const TvShowsSlice = createSlice({
   name: "tvShows",
   initialState: {
     TvShowsList: [],
+    isLoading: false,
+    page: 1,
   },
   reducers: {
-    getTvShowsApi(tvShows_type) {
-      return tvShows_type;
+    getTvShowsApi(state) {
+      state.isLoading = true;
     },
     setTvShowsApi(state, action) {
-      state.TvShowsList = [];
+      state.isLoading = false;
       state.TvShowsList.push(...action.payload);
       state.TvShowsList.map((i) => (i.media_type = "tv"));
     },
+    resetState(state) {
+      state.TvShowsList = [];
+      state.page = 1;
+    },
   },
 });
-export const { getTvShowsApi, setTvShowsApi } = TvShowsSlice.actions;
+export const { getTvShowsApi, setTvShowsApi, resetState } =
+  TvShowsSlice.actions;
 export default TvShowsSlice.reducer;
