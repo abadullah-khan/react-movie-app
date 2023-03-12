@@ -4,16 +4,21 @@ const SearchSlice = createSlice({
   name: "search",
   initialState: {
     searchedList: [],
+    page: 1,
+    query: "",
   },
   reducers: {
-    getSearchedMovieApi(query) {
-      return query;
+    onChange(state, action) {
+      state.query = action.payload;
     },
+    getSearchedMovieApi() {},
     setSearchedMovieApi(state, action) {
       state.searchedList = [];
       state.searchedList.push(...action.payload);
+      state.page += 1;
     },
   },
 });
-export const { getSearchedMovieApi, setSearchedMovieApi } = SearchSlice.actions;
+export const { onChange, getSearchedMovieApi, setSearchedMovieApi } =
+  SearchSlice.actions;
 export default SearchSlice.reducer;

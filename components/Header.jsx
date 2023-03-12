@@ -1,19 +1,20 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { getSearchedMovieApi } from "../Slices/SearchSlice";
+import { onChange, getSearchedMovieApi } from "../Slices/SearchSlice";
 import { BarLoader } from "react-spinners";
 
-const Header = () => {
+export const Header = () => {
   const dispatch = useDispatch();
   const moviesLoading = useSelector((state) => state.movies.isLoading);
   const tvShowsLoading = useSelector((state) => state.tvShows.isLoading);
-  const [query, setQuery] = useState("");
+  const { query, page } = useSelector((state) => state.search);
   const [moviesTypeVisible, setMoviesTypeVisible] = useState(false);
   const [seriesTypeVisible, setSeriesTypeVisible] = useState(false);
-  useEffect(() => {
-    dispatch(getSearchedMovieApi(query));
-  }, [query]);
+  const handleChange = (value) => {
+    dispatch(onChange(value));
+    dispatch(getSearchedMovieApi({ query, page }));
+  };
 
   return (
     <>
@@ -29,7 +30,7 @@ const Header = () => {
             name=""
             id=""
             value={query}
-            onChange={(event) => setQuery(event.target.value)}
+            onChange={(event) => handleChange(event.target.value)}
           />
         </div>
         <div className="linkContainer">
@@ -85,5 +86,3 @@ const Header = () => {
     </>
   );
 };
-
-export default Header;

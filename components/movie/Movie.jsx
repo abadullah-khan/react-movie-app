@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-// import { getMovieApi } from "../../Slices/MovieSlice";
 import { getMovieApi } from "../../Slices/MovieSlice";
 import { Card } from "../Card";
 import { VideoCard } from "../VideoCard";
+import { OpenInNew, PlayArrow } from "@mui/icons-material";
 
-const Movie = () => {
+export const Movie = () => {
   const [popularVideos, setPopularVideos] = useState(true);
   const dispatch = useDispatch();
   const { id, media_type } = useParams();
@@ -23,6 +23,15 @@ const Movie = () => {
     }
   }, [movieDetails]);
 
+  const handleWatchTrailer = () => {
+    const trailer = movieDetails.videos.results.find(
+      (video) => video.type === "Trailer"
+    );
+    window.open(`https://www.youtube.com/watch?v=${trailer.key}`);
+  };
+  const handleIMDBApp = () => {
+    window.open(`https://www.imdb.com/title/${movieDetails.imdb_id}`);
+  };
   return (
     <>
       {isPresent && movieDetails.id ? (
@@ -90,6 +99,20 @@ const Movie = () => {
                   Overview
                   <p>{movieDetails.overview}</p>
                 </div>
+                <div className="btnContainer">
+                  <span onClick={() => handleWatchTrailer()}>
+                    <span>
+                      <PlayArrow />
+                    </span>
+                    Play Trailer
+                  </span>
+                  <span onClick={() => handleIMDBApp()}>
+                    <span>
+                      <OpenInNew />
+                    </span>
+                    IMDB Link
+                  </span>
+                </div>
               </div>
             </div>
           </div>
@@ -136,8 +159,9 @@ const Movie = () => {
                 {popularVideos ? (
                   <div className="videoCardWrapper">
                     {movieDetails.videos.results.map((video) =>
-                      video.official === true &&
-                      (video.type === "Teaser" || video.type === "Trailer") ? (
+                      video.official === true ||
+                      video.type === "Teaser" ||
+                      video.type === "Trailer" ? (
                         <VideoCard item={video} />
                       ) : (
                         ""
@@ -250,4 +274,3 @@ const Movie = () => {
     </>
   );
 };
-export default Movie;

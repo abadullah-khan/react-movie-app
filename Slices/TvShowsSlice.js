@@ -14,11 +14,12 @@ const TvShowsSlice = createSlice({
     setTvShowsApi(state, action) {
       state.isLoading = false;
       state.TvShowsList.push(...action.payload);
-      state.TvShowsList.map((i) => (i.media_type = "tv"));
+      state.TvShowsList.map((tvShow) => (tvShow.media_type = "tv"));
+      state.page += 1;
     },
     resetState(state) {
-      state.TvShowsList = [];
       state.page = 1;
+      state.TvShowsList = [];
     },
   },
 });

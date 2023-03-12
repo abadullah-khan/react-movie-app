@@ -1,9 +1,16 @@
-import React from "react";
-import { useSelector } from "react-redux";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Card } from "./Card";
+import { useInView } from "react-intersection-observer";
+import { getSearchedMovieApi } from "../Slices/SearchSlice";
 
 export const Search = () => {
-  const { searchedList } = useSelector((state) => state.search);
+  const dispatch = useDispatch();
+  const { searchedList, query, page } = useSelector((state) => state.search);
+  const { ref, inView } = useInView({ rootMargin: "50px" });
+  useEffect(() => {
+    dispatch(getSearchedMovieApi({ query, page }));
+  }, [inView]);
   return (
     <>
       <div className="searchedContainer">
@@ -13,6 +20,7 @@ export const Search = () => {
           ))}
         </div>
       </div>
+      <div ref={ref}></div>
     </>
   );
 };

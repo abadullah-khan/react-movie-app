@@ -6,9 +6,9 @@ import {
 } from "../Slices/SearchSlice";
 
 function* FetchApi(action) {
-  console.log(action.payload);
+  const { query, page } = action.payload;
   const response = yield axios.get(
-    `https://api.themoviedb.org/3/search/multi?api_key=3f6036e41fc244bd77f0e28bc5f2904d&query=${action.payload}`
+    `https://api.themoviedb.org/3/search/multi?api_key=3f6036e41fc244bd77f0e28bc5f2904d&query=${query}&page=${page}`
   );
   yield put(setSearchedMovieApi(response.data.results));
 }

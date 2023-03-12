@@ -1,5 +1,5 @@
 import { Star } from "@mui/icons-material";
-import React, { useEffect } from "react";
+import React, { useEffect, lazy, Suspense } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
@@ -8,8 +8,13 @@ import { NavLink } from "react-router-dom";
 import { getTrendPosterApi } from "../../Slices/HomeSlice";
 import { Search } from "../Search";
 import { Trending } from "./components/Trending";
+// const Trending = lazy(() =>
+//   import("./components/Trending").then((module) => ({
+//     default: module.Trending,
+//   }))
+// );
 
-const Home = () => {
+export const Home = () => {
   const dispatch = useDispatch();
   const { trendPosterList } = useSelector((state) => state.home);
   const { searchedList } = useSelector((state) => state.search);
@@ -98,11 +103,11 @@ const Home = () => {
                 })}
             </Carousel>
           </div>
+          {/* <Suspense fallback={<h2>Loading...</h2>}> */}
           <Trending />
+          {/* </Suspense> */}
         </>
       )}
     </>
   );
 };
-
-export default Home;

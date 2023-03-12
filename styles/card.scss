@@ -10,6 +10,7 @@
       height: 168.75px;
       border-radius: 10px;
       overflow: hidden;
+      transition: all 0.3s ease;
       img {
         display: block;
         height: 100%;
@@ -56,4 +57,7 @@
 }
 .home_card:hover > a > .imgContainer img {
   transform: scale(1.1);
+}
+.home_card:hover > a > .imgContainer {
+  border-radius: 10px 10px 0 0;
 }

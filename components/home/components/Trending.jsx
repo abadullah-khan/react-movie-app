@@ -1,9 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, lazy, Suspense } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import { getTrendingApi } from "../../../Slices/HomeSlice";
 import { Card } from "../../Card";
-
+// const Card = lazy(() =>
+//   import("../../Card").then((module) => ({ default: module.Card }))
+// );
 export const Trending = () => {
   const { trendingList } = useSelector((state) => state.home);
   const dispatch = useDispatch();
@@ -66,9 +68,11 @@ export const Trending = () => {
           </div>
         </div>
         <div className="cardWrapper">
+          {/* <Suspense fallback={<h2>Wait...</h2>}> */}
           {trendingList.map((item) => (
             <Card item={item} key={item.id} />
           ))}
+          {/* </Suspense> */}
         </div>
       </div>
     </>

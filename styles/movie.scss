@@ -10,7 +10,7 @@
       width: 100%;
       img {
         display: block;
-        height: 80vh;
+        height: 90vh;
         width: 100%;
         aspect-ratio: 16/9;
         object-fit: cover;
@@ -42,6 +42,9 @@
       .details {
         width: 65%;
         height: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
         > .details_header {
           margin: 0.5rem 0;
           color: whitesmoke;
@@ -63,14 +66,11 @@
           }
         }
         > .tagline {
-          margin: 0.5rem 0;
-
           color: rgb(173, 172, 172);
           font-size: 2rem;
           font-style: italic;
         }
         > .overview {
-          margin: 0.5rem 0;
           color: whitesmoke;
           font-size: 1.6rem;
           font-weight: 800;
@@ -78,6 +78,24 @@
             margin: 0.5rem 0;
             font-size: 1.4rem;
             font-weight: 300;
+          }
+        }
+        > .btnContainer {
+          color: white;
+          display: flex;
+          justify-content: space-around;
+          > span {
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+            padding: 0.5rem;
+            border-radius: 10px;
+            background-color: rgb(5, 15, 35);
+            border: 1px solid white;
+            &:hover {
+              background-color: rgb(6, 27, 68);
+              cursor: pointer;
+            }
           }
         }
       }
