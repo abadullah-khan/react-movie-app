@@ -1,0 +1,15 @@
+.moviesContainer {
+  background-color: antiquewhite;
+  // background-color: rgb(5, 15, 35);
+  // background-color: rgb(155, 69, 8);
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  > .moviesWrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+}
