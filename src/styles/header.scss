@@ -27,13 +27,30 @@
     display: flex;
     flex: 0.5;
     justify-content: center;
+    align-items: center;
+    background-color: lightblue;
+    height: 30px;
+    border-radius: 10px;
+    overflow: hidden;
     > input {
-      background-color: antiquewhite;
-      font-size: 1.2rem;
+      background-color: transparent;
+      font-size: 1.35rem;
       width: 100%;
       border: 0;
-      border-radius: 20px;
-      padding: 0.3rem 0.5rem;
+      padding-inline: 0.5rem;
+    }
+    > button {
+      font-size: 1.35rem;
+      background-color: transparent;
+      height: 30px;
+      padding-inline: 0.5rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: none;
+      &:hover {
+        cursor: pointer;
+      }
     }
   }
   > .linkContainer {

@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { onChange, getSearchedMovieApi } from "../Slices/SearchSlice";
 import { BarLoader } from "react-spinners";
+import { IoSearchSharp } from "react-icons/io5";
 
 export const Header = () => {
   const dispatch = useDispatch();
@@ -11,9 +12,13 @@ export const Header = () => {
   const { query, page } = useSelector((state) => state.search);
   const [moviesTypeVisible, setMoviesTypeVisible] = useState(false);
   const [seriesTypeVisible, setSeriesTypeVisible] = useState(false);
+  const Navigate = useNavigate();
   const handleChange = (value) => {
     dispatch(onChange(value));
-    dispatch(getSearchedMovieApi({ query, page }));
+  };
+  const handleClick = () => {
+    query.trim().length > 0 &&
+      (dispatch(getSearchedMovieApi({ query, page })), Navigate("/search"));
   };
 
   return (
@@ -31,7 +36,11 @@ export const Header = () => {
             id=""
             value={query}
             onChange={(event) => handleChange(event.target.value)}
+            onKeyDown={(e) => e.key === "Enter" && handleClick()}
           />
+          <button onClick={() => handleClick()} title="Search">
+            <IoSearchSharp />
+          </button>
         </div>
         <div className="linkContainer">
           <span

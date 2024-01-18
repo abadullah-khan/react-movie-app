@@ -1,5 +1,5 @@
 import React, { lazy, Suspense } from "react";
-import { Provider } from "react-redux";
+import { Provider, useSelector } from "react-redux";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import { Store } from "./Store";
@@ -16,6 +16,7 @@ import "./styles/movies.scss";
 import "./styles/tvShows.scss";
 import "./styles/search.scss";
 import "./styles/videoCard.scss";
+import { Search } from "./components/Search";
 
 const Header = lazy(() =>
   import("./components/Header").then((module) => ({ default: module.Header }))
@@ -43,15 +44,18 @@ export const MovieApp = () => {
   return (
     <Provider store={Store}>
       <BrowserRouter>
-        <Header />
-        <Suspense fallback={<div>Wait im being loaded</div>}>
-          <Routes>
-            <Route path="/" element={<Home />}></Route>
-            <Route path="movie/:media_type/:id" element={<Movie />} />
-            <Route path="movies/:movies_type" element={<Movies />} />
-            <Route path="tvShows/:tvShows_Type" element={<TvShows />} />
-          </Routes>
-        </Suspense>
+        <>
+          <Header />
+          <Suspense fallback={<div>Wait im being loaded</div>}>
+            <Routes>
+              <Route path="/" element={<Home />}></Route>
+              <Route path="search" element={<Search />} />
+              <Route path="movie/:media_type/:id" element={<Movie />} />
+              <Route path="movies/:movies_type" element={<Movies />} />
+              <Route path="tvShows/:tvShows_Type" element={<TvShows />} />
+            </Routes>
+          </Suspense>
+        </>
       </BrowserRouter>
     </Provider>
   );
