@@ -12,7 +12,7 @@ function* FetchApi(action) {
       import.meta.env.VITE_TMDB_API_KEY
     }&query=${query}&page=${page}`
   );
-  yield put(setSearchedMovieApi(response.data.results));
+  yield put(setSearchedMovieApi(response.data));
 }
 export function* SearchSaga() {
   yield takeLatest(getSearchedMovieApi.type, FetchApi);

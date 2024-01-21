@@ -1,24 +1,28 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
-import { onChange, getSearchedMovieApi } from "../Slices/SearchSlice";
+import { onChange, resetState } from "../Slices/SearchSlice";
 import { BarLoader } from "react-spinners";
 import { IoSearchSharp } from "react-icons/io5";
 
 export const Header = () => {
   const dispatch = useDispatch();
+
   const moviesLoading = useSelector((state) => state.movies.isLoading);
   const tvShowsLoading = useSelector((state) => state.tvShows.isLoading);
-  const { query, page } = useSelector((state) => state.search);
+  const { query, isLoading: search } = useSelector((state) => state.search);
+
   const [moviesTypeVisible, setMoviesTypeVisible] = useState(false);
   const [seriesTypeVisible, setSeriesTypeVisible] = useState(false);
+
   const Navigate = useNavigate();
+
   const handleChange = (value) => {
     dispatch(onChange(value));
   };
+
   const handleClick = () => {
-    query.trim().length > 0 &&
-      (dispatch(getSearchedMovieApi({ query, page })), Navigate("/search"));
+    query.trim().length > 0 && (dispatch(resetState()), Navigate("/search"));
   };
 
   return (
@@ -89,7 +93,7 @@ export const Header = () => {
           </span>
         </div>
       </div>
-      {(moviesLoading || tvShowsLoading) && (
+      {(moviesLoading || tvShowsLoading || search) && (
         <BarLoader width={"100%"} color="blue" />
       )}
     </>
