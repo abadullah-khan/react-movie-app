@@ -1,19 +1,16 @@
 import axios from "axios";
 import { takeLatest, put } from "redux-saga/effects";
-import {
-  getSearchedMovieApi,
-  setSearchedMovieApi,
-} from "../Slices/SearchSlice";
+import { getSearchedMovie, setSearchedMovie } from "../Slices/SearchSlice";
 
-function* FetchApi(action) {
-  const { query, page } = action.payload;
+function* FetchData(action) {
+  const { query, currentPage } = action.payload;
   const response = yield axios.get(
     `https://api.themoviedb.org/3/search/multi?api_key=${
       import.meta.env.VITE_TMDB_API_KEY
-    }&query=${query}&page=${page}`
+    }&query=${query}&page=${currentPage}`
   );
-  yield put(setSearchedMovieApi(response.data));
+  yield put(setSearchedMovie(response.data));
 }
 export function* SearchSaga() {
-  yield takeLatest(getSearchedMovieApi.type, FetchApi);
+  yield takeLatest(getSearchedMovie.type, FetchData);
 }

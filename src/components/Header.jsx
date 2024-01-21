@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
-import { onChange, resetState } from "../Slices/SearchSlice";
 import { BarLoader } from "react-spinners";
 import { IoSearchSharp } from "react-icons/io5";
+
+import { handleChange, resetState } from "../Slices/SearchSlice";
 
 export const Header = () => {
   const dispatch = useDispatch();
@@ -17,8 +18,8 @@ export const Header = () => {
 
   const Navigate = useNavigate();
 
-  const handleChange = (value) => {
-    dispatch(onChange(value));
+  const onChange = (value) => {
+    dispatch(handleChange(value));
   };
 
   const handleClick = () => {
@@ -39,7 +40,7 @@ export const Header = () => {
             name=""
             id=""
             value={query}
-            onChange={(event) => handleChange(event.target.value)}
+            onChange={(event) => onChange(event.target.value)}
             onKeyDown={(e) => e.key === "Enter" && handleClick()}
           />
           <button onClick={() => handleClick()} title="Search">

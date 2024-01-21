@@ -5,39 +5,35 @@ const SearchSlice = createSlice({
   initialState: {
     query: "",
     isLoading: false,
-    page: 1,
-    searchedList: [],
+    currentPage: 1,
+    data: [],
     totalPages: 1,
     hasMore: true,
   },
   reducers: {
-    onChange(state, action) {
+    handleChange(state, action) {
       state.query = action.payload;
     },
     resetState(state) {
-      state.page = 1;
-      state.searchedList = [];
+      state.currentPage = 1;
+      state.data = [];
       state.totalPages = 1;
       state.hasMore = true;
     },
-    getSearchedMovieApi(state) {
+    getSearchedMovie(state) {
       state.isLoading = true;
     },
-    setSearchedMovieApi(state, action) {
+    setSearchedMovie(state, action) {
       let { page, results, total_pages } = action.payload;
 
       state.isLoading = false;
-      state.searchedList.push(...results);
-      state.page = page += 1;
+      state.data.push(...results);
+      state.currentPage = page += 1;
       state.totalPages = total_pages;
-      state.hasMore = state.page > total_pages ? false : true;
+      state.hasMore = state.currentPage > total_pages ? false : true;
     },
   },
 });
-export const {
-  onChange,
-  resetState,
-  getSearchedMovieApi,
-  setSearchedMovieApi,
-} = SearchSlice.actions;
+export const { handleChange, resetState, getSearchedMovie, setSearchedMovie } =
+  SearchSlice.actions;
 export default SearchSlice.reducer;
