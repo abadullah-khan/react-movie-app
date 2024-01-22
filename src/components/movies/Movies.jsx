@@ -2,37 +2,27 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 
-import { getMoviesApi, resetState } from "../../Slices/MoviesSlice";
+import { getData } from "../../Slices/MoviesSlice";
 import { Card } from "../Card";
-import { useInView } from "react-intersection-observer";
 
 export const Movies = () => {
   const dispatch = useDispatch();
-  const { MoviesList, page } = useSelector((state) => state.movies);
-  const { movies_type } = useParams();
-  const { ref, inView } = useInView({
-    rootMargin: "50px",
-  });
-  useEffect(() => {
-    dispatch(resetState());
-    dispatch(getMoviesApi({ movies_type, page }));
-  }, [movies_type]);
+  const { data, currentPage } = useSelector((state) => state.movies);
+  const { media_type, movies_type } = useParams();
 
   useEffect(() => {
-    if (inView) {
-      dispatch(getMoviesApi({ movies_type, page }));
-    }
-  }, [inView]);
+    dispatch(getData({ media_type, movies_type, currentPage }));
+  }, [media_type, movies_type]);
+
   return (
     <>
-      <div className="moviesContainer" ref={ref}>
+      <div className="moviesContainer">
         <div className="moviesWrapper">
-          {MoviesList.map((item) => (
+          {data.map((item) => (
             <Card item={item} key={item.id} />
           ))}
         </div>
       </div>
-      <div ref={ref}></div>
     </>
   );
 };

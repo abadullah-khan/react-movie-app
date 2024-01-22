@@ -1,16 +1,16 @@
 import axios from "axios";
 import { takeLatest, put } from "redux-saga/effects";
-import { getMoviesApi, setMoviesApi } from "../Slices/MoviesSlice";
+import { getData, setData } from "../Slices/MoviesSlice";
 
-function* FetchApi(action) {
-  const { movies_type, page } = action.payload;
+function* FetchData(action) {
+  const { media_type, movies_type, currentPage } = action.payload;
   const response = yield axios.get(
-    `https://api.themoviedb.org/3/movie/${movies_type}?api_key=${
+    `https://api.themoviedb.org/3/${media_type}/${movies_type}?api_key=${
       import.meta.env.VITE_TMDB_API_KEY
-    }&page=${page}`
+    }&page=${currentPage}`
   );
-  yield put(setMoviesApi({ movies: response.data.results }));
+  yield put(setData(response.data));
 }
 export function* MoviesSaga() {
-  yield takeLatest(getMoviesApi.type, FetchApi);
+  yield takeLatest(getData.type, FetchData);
 }

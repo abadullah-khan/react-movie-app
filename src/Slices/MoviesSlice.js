@@ -3,26 +3,29 @@ import { createSlice } from "@reduxjs/toolkit";
 const MoviesSlice = createSlice({
   name: "movies",
   initialState: {
-    MoviesList: [],
+    data: [],
     isLoading: false,
-    page: 1,
+    currentPage: 1,
+    media_type: null,
   },
   reducers: {
-    getMoviesApi(state) {
+    getData(state, action) {
       state.isLoading = true;
+      state.media_type = action.payload.media_type;
     },
-    setMoviesApi(state, action) {
+    setData(state, action) {
       state.isLoading = false;
-      state.MoviesList.push(...action.payload.movies);
-      state.MoviesList.map((movie) => (movie.media_type = "movie"));
-      state.page += 1;
+      state.data.push(...action.payload.results);
+      state.data.map((movie) => (movie.media_type = state.media_type));
+      state.currentPage = action.payload.page + 1;
     },
     resetState(state) {
-      state.page = 1;
-      state.MoviesList = [];
+      state.currentPage = 1;
+      state.data = [];
+      state.media_type = null;
     },
   },
 });
 
-export const { getMoviesApi, setMoviesApi, resetState } = MoviesSlice.actions;
+export const { getData, setData, resetState } = MoviesSlice.actions;
 export default MoviesSlice.reducer;

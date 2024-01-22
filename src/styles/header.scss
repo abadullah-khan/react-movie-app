@@ -71,19 +71,17 @@
         border-radius: 8px;
         overflow: hidden;
         li {
-          a {
-            background-color: lightblue;
-            display: block;
-            padding: 0.7rem;
-            color: rgb(54, 87, 98);
-            text-decoration: none;
-            font-size: 1.2rem;
-            font-weight: 400;
-            &:hover {
-              cursor: pointer;
-              background-color: rgb(54, 87, 98);
-              color: lightblue;
-            }
+          background-color: lightblue;
+          display: block;
+          padding: 0.7rem;
+          color: rgb(54, 87, 98);
+          text-decoration: none;
+          font-size: 1.2rem;
+          font-weight: 400;
+          &:hover {
+            cursor: pointer;
+            background-color: rgb(54, 87, 98);
+            color: lightblue;
           }
         }
       }

@@ -4,7 +4,8 @@ import { Link, useNavigate } from "react-router-dom";
 import { BarLoader } from "react-spinners";
 import { IoSearchSharp } from "react-icons/io5";
 
-import { handleChange, resetState } from "../Slices/SearchSlice";
+import { handleChange, resetSearchState } from "../Slices/SearchSlice";
+import { resetState } from "../Slices/MoviesSlice";
 
 export const Header = () => {
   const dispatch = useDispatch();
@@ -22,10 +23,29 @@ export const Header = () => {
     dispatch(handleChange(value));
   };
 
-  const handleClick = () => {
-    query.trim().length > 0 && (dispatch(resetState()), Navigate("/search"));
+  const handleSearch = () => {
+    query.trim().length > 0 &&
+      (dispatch(resetSearchState()), Navigate("/search"));
   };
 
+  const mediaType = {
+    movieTypes: [
+      { title: "Popular", path: "/movie/popular" },
+      { title: "Now Playing", path: "/movie/now_playing" },
+      { title: "Upcoming", path: "/movie/upcoming" },
+      { title: "Top Rated", path: "/movie/top_rated" },
+    ],
+    tvShowTypes: [
+      { title: "Popular", path: "/tv/popular" },
+      { title: "Airing Today", path: "/tv/on_the_air" },
+      { title: "Top Rated", path: "/tv/top_rated" },
+    ],
+  };
+
+  const handleLink = (path) => {
+    dispatch(resetState());
+    Navigate(path);
+  };
   return (
     <>
       <div className="header">
@@ -41,9 +61,9 @@ export const Header = () => {
             id=""
             value={query}
             onChange={(event) => onChange(event.target.value)}
-            onKeyDown={(e) => e.key === "Enter" && handleClick()}
+            onKeyDown={(e) => e.key === "Enter" && handleSearch()}
           />
-          <button onClick={() => handleClick()} title="Search">
+          <button onClick={() => handleSearch()} title="Search">
             <IoSearchSharp />
           </button>
         </div>
@@ -55,18 +75,14 @@ export const Header = () => {
             <span>Movies</span>
             {moviesTypeVisible && (
               <ul>
-                <li>
-                  <Link to="/movies/popular">Popular</Link>
-                </li>
-                <li>
-                  <Link to="/movies/now_playing">Now Playing </Link>
-                </li>
-                <li>
-                  <Link to="/movies/upcoming">Upcoming</Link>
-                </li>
-                <li>
-                  <Link to="/movies/top_rated">Top Rated</Link>
-                </li>
+                {mediaType.movieTypes.map((movieType) => (
+                  <li
+                    onClick={() => handleLink(movieType.path)}
+                    key={movieType.title}
+                  >
+                    {movieType.title}
+                  </li>
+                ))}
               </ul>
             )}
           </span>
@@ -77,15 +93,14 @@ export const Header = () => {
             <span>TV Shows</span>
             {seriesTypeVisible && (
               <ul>
-                <li>
-                  <Link to="/tvShows/popular">Popular</Link>
-                </li>
-                <li>
-                  <Link to="/tvShows/on_the_air">Airing Today</Link>
-                </li>
-                <li>
-                  <Link to="/tvShows/top_rated">Top Rated</Link>
-                </li>
+                {mediaType.tvShowTypes.map((tvShow) => (
+                  <li
+                    onClick={() => handleLink(tvShow.path)}
+                    key={tvShow.title}
+                  >
+                    {tvShow.title}
+                  </li>
+                ))}
               </ul>
             )}
           </span>

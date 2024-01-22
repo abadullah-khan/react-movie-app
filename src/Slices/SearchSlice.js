@@ -14,7 +14,7 @@ const SearchSlice = createSlice({
     handleChange(state, action) {
       state.query = action.payload;
     },
-    resetState(state) {
+    resetSearchState(state) {
       state.currentPage = 1;
       state.data = [];
       state.totalPages = 1;
@@ -34,6 +34,10 @@ const SearchSlice = createSlice({
     },
   },
 });
-export const { handleChange, resetState, getSearchedMovie, setSearchedMovie } =
-  SearchSlice.actions;
+export const {
+  handleChange,
+  resetSearchState,
+  getSearchedMovie,
+  setSearchedMovie,
+} = SearchSlice.actions;
 export default SearchSlice.reducer;

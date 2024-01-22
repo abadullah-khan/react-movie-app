@@ -51,8 +51,8 @@ export const MovieApp = () => {
               <Route path="/" element={<Home />}></Route>
               <Route path="search" element={<Search />} />
               <Route path="movie/:media_type/:id" element={<Movie />} />
-              <Route path="movies/:movies_type" element={<Movies />} />
-              <Route path="tvShows/:tvShows_Type" element={<TvShows />} />
+              <Route path="/:media_type/:movies_type" element={<Movies />} />
+              <Route path="/:media_type/:tvShows_Type" element={<TvShows />} />
             </Routes>
           </Suspense>
         </>
