@@ -5,7 +5,7 @@ import { useParams } from "react-router-dom";
 import { getData } from "../../Slices/MoviesSlice";
 import { Card } from "../Card";
 
-export const Movies = () => {
+export const Media = () => {
   const dispatch = useDispatch();
   const { data, currentPage } = useSelector((state) => state.movies);
   const { media_type, movies_type } = useParams();
