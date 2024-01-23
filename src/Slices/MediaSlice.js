@@ -6,23 +6,23 @@ const MediaSlice = createSlice({
     data: [],
     isLoading: false,
     currentPage: 1,
-    media_type: null,
+    mediaType: null,
   },
   reducers: {
     getData(state, action) {
       state.isLoading = true;
-      state.media_type = action.payload.media_type;
+      state.mediaType = action.payload.mediaType;
     },
     setData(state, action) {
       state.isLoading = false;
       state.data.push(...action.payload.results);
-      state.data.map((movie) => (movie.media_type = state.media_type));
+      state.data.map((movie) => (movie.mediaType = state.mediaType));
       state.currentPage = action.payload.page + 1;
     },
     resetMediaState(state) {
       state.currentPage = 1;
       state.data = [];
-      state.media_type = null;
+      state.mediaType = null;
     },
   },
 });
