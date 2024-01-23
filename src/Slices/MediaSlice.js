@@ -19,7 +19,7 @@ const MediaSlice = createSlice({
       state.data.map((movie) => (movie.media_type = state.media_type));
       state.currentPage = action.payload.page + 1;
     },
-    resetState(state) {
+    resetMediaState(state) {
       state.currentPage = 1;
       state.data = [];
       state.media_type = null;
@@ -27,5 +27,5 @@ const MediaSlice = createSlice({
   },
 });
 
-export const { getData, setData, resetState } = MediaSlice.actions;
+export const { getData, setData, resetMediaState } = MediaSlice.actions;
 export default MediaSlice.reducer;

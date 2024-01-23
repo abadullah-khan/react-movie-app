@@ -5,7 +5,7 @@ import { BarLoader } from "react-spinners";
 import { IoSearchSharp } from "react-icons/io5";
 
 import { handleChange, resetSearchState } from "../Slices/SearchSlice";
-import { resetState } from "../Slices/MoviesSlice";
+import { resetMediaState } from "../Slices/MediaSlice";
 
 export const Header = () => {
   const dispatch = useDispatch();
@@ -42,7 +42,7 @@ export const Header = () => {
   };
 
   const handleLink = (path) => {
-    dispatch(resetState());
+    dispatch(resetMediaState());
     Navigate(path);
   };
   return (
