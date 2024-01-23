@@ -16,8 +16,8 @@ export const Media = () => {
 
   return (
     <>
-      <div className="moviesContainer">
-        <div className="moviesWrapper">
+      <div className="mediaContainer">
+        <div className="mediaWrapper">
           {data.map((item) => (
             <Card item={item} key={item.id} />
           ))}
