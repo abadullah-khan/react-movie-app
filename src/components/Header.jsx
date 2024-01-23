@@ -10,7 +10,7 @@ import { resetMediaState } from "../Slices/MediaSlice";
 export const Header = () => {
   const dispatch = useDispatch();
 
-  const moviesLoading = useSelector((state) => state.movies.isLoading);
+  const moviesLoading = useSelector((state) => state.media.isLoading);
   const { query, isLoading: search } = useSelector((state) => state.search);
 
   const [moviesTypeVisible, setMoviesTypeVisible] = useState(false);
