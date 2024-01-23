@@ -8,11 +8,11 @@ import { Card } from "../Card";
 export const Media = () => {
   const dispatch = useDispatch();
   const { data, currentPage } = useSelector((state) => state.movies);
-  const { media_type, movies_type } = useParams();
+  const { mediaType, contentType } = useParams();
 
   useEffect(() => {
-    dispatch(getData({ media_type, movies_type, currentPage }));
-  }, [media_type, movies_type]);
+    dispatch(getData({ mediaType, contentType, currentPage }));
+  }, [mediaType, contentType]);
 
   return (
     <>
