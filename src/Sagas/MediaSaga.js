@@ -3,9 +3,9 @@ import { takeLatest, put } from "redux-saga/effects";
 import { getData, setData } from "../Slices/MediaSlice";
 
 function* FetchData(action) {
-  const { media_type, movies_type, currentPage } = action.payload;
+  const { mediaType, contentType, currentPage } = action.payload;
   const response = yield axios.get(
-    `https://api.themoviedb.org/3/${media_type}/${movies_type}?api_key=${
+    `https://api.themoviedb.org/3/${mediaType}/${contentType}?api_key=${
       import.meta.env.VITE_TMDB_API_KEY
     }&page=${currentPage}`
   );
