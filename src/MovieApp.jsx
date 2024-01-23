@@ -34,11 +34,6 @@ const Movies = lazy(() =>
     default: module.Movies,
   }))
 );
-const TvShows = lazy(() =>
-  import("./components/tv shows/TvShows").then((module) => ({
-    default: module.TvShows,
-  }))
-);
 
 export const MovieApp = () => {
   return (
@@ -52,7 +47,6 @@ export const MovieApp = () => {
               <Route path="search" element={<Search />} />
               <Route path="movie/:media_type/:id" element={<Movie />} />
               <Route path="/:media_type/:movies_type" element={<Movies />} />
-              <Route path="/:media_type/:tvShows_Type" element={<TvShows />} />
             </Routes>
           </Suspense>
         </>
