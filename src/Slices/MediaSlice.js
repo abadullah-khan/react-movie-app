@@ -9,11 +9,11 @@ const MediaSlice = createSlice({
     mediaType: null,
   },
   reducers: {
-    getData(state, action) {
+    getMediaData(state, action) {
       state.isLoading = true;
       state.mediaType = action.payload.mediaType;
     },
-    setData(state, action) {
+    setMediaData(state, action) {
       state.isLoading = false;
       state.data.push(...action.payload.results);
       state.data.map((movie) => (movie.mediaType = state.mediaType));
@@ -27,5 +27,6 @@ const MediaSlice = createSlice({
   },
 });
 
-export const { getData, setData, resetMediaState } = MediaSlice.actions;
+export const { getMediaData, setMediaData, resetMediaState } =
+  MediaSlice.actions;
 export default MediaSlice.reducer;

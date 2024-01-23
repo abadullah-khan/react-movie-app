@@ -1,6 +1,6 @@
 import axios from "axios";
 import { takeLatest, put } from "redux-saga/effects";
-import { getData, setData } from "../Slices/MediaSlice";
+import { getMediaData, setMediaData } from "../Slices/MediaSlice";
 
 function* FetchData(action) {
   const { mediaType, contentType, currentPage } = action.payload;
@@ -9,8 +9,8 @@ function* FetchData(action) {
       import.meta.env.VITE_TMDB_API_KEY
     }&page=${currentPage}`
   );
-  yield put(setData(response.data));
+  yield put(setMediaData(response.data));
 }
 export function* MediaSaga() {
-  yield takeLatest(getData.type, FetchData);
+  yield takeLatest(getMediaData.type, FetchData);
 }

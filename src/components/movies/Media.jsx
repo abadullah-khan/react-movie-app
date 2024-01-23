@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 
-import { getData } from "../../Slices/MediaSlice";
+import { getMediaData } from "../../Slices/MediaSlice";
 import { Card } from "../Card";
 
 export const Media = () => {
@@ -11,7 +11,7 @@ export const Media = () => {
   const { mediaType, contentType } = useParams();
 
   useEffect(() => {
-    dispatch(getData({ mediaType, contentType, currentPage }));
+    dispatch(getMediaData({ mediaType, contentType, currentPage }));
   }, [mediaType, contentType]);
 
   return (
