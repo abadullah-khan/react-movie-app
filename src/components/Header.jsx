@@ -11,7 +11,6 @@ export const Header = () => {
   const dispatch = useDispatch();
 
   const moviesLoading = useSelector((state) => state.movies.isLoading);
-  const tvShowsLoading = useSelector((state) => state.tvShows.isLoading);
   const { query, isLoading: search } = useSelector((state) => state.search);
 
   const [moviesTypeVisible, setMoviesTypeVisible] = useState(false);
@@ -109,9 +108,7 @@ export const Header = () => {
           </span>
         </div>
       </div>
-      {(moviesLoading || tvShowsLoading || search) && (
-        <BarLoader width={"100%"} color="blue" />
-      )}
+      {(moviesLoading || search) && <BarLoader width={"100%"} color="blue" />}
     </>
   );
 };
