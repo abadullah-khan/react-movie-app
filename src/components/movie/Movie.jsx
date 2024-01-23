@@ -10,10 +10,10 @@ import { RxOpenInNewWindow } from "react-icons/rx";
 export const Movie = () => {
   const [popularVideos, setPopularVideos] = useState(true);
   const dispatch = useDispatch();
-  const { id, media_type } = useParams();
+  const { id, mediaType } = useParams();
   useEffect(() => {
-    dispatch(getMovieApi({ id, media_type }));
-  }, [id, media_type]);
+    dispatch(getMovieApi({ id, mediaType }));
+  }, [id, mediaType]);
 
   const movie = useSelector((state) => state.movie);
   const { movieDetails } = movie;
