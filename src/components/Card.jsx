@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { FaRegStar } from "react-icons/fa";
+import { FaStar } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
 import { useInView } from "react-intersection-observer";
 
@@ -36,7 +36,7 @@ export const Card = ({ item }) => {
               <p>
                 {item.vote_average}
                 <span>
-                  <FaRegStar />
+                  <FaStar />
                 </span>
               </p>
             </div>
