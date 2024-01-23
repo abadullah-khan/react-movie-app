@@ -29,9 +29,9 @@ const Movie = lazy(() =>
     default: module.Movie,
   }))
 );
-const Movies = lazy(() =>
-  import("./components/movies/Movies").then((module) => ({
-    default: module.Movies,
+const Media = lazy(() =>
+  import("./components/movies/Media").then((module) => ({
+    default: module.Media,
   }))
 );
 
@@ -46,7 +46,7 @@ export const MovieApp = () => {
               <Route path="/" element={<Home />}></Route>
               <Route path="search" element={<Search />} />
               <Route path="movie/:media_type/:id" element={<Movie />} />
-              <Route path="/:media_type/:movies_type" element={<Movies />} />
+              <Route path="/:media_type/:movies_type" element={<Media />} />
             </Routes>
           </Suspense>
         </>
