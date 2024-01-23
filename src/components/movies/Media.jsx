@@ -2,12 +2,12 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 
-import { getData } from "../../Slices/MoviesSlice";
+import { getData } from "../../Slices/MediaSlice";
 import { Card } from "../Card";
 
 export const Media = () => {
   const dispatch = useDispatch();
-  const { data, currentPage } = useSelector((state) => state.movies);
+  const { data, currentPage } = useSelector((state) => state.media);
   const { mediaType, contentType } = useParams();
 
   useEffect(() => {
