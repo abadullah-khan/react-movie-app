@@ -12,7 +12,7 @@ import "./styles/home.scss";
 import "./styles/trending.scss";
 import "./styles/card.scss";
 import "./styles/movie.scss";
-import "./styles/movies.scss";
+import "./styles/media.scss";
 import "./styles/tvShows.scss";
 import "./styles/search.scss";
 import "./styles/videoCard.scss";
