@@ -41,8 +41,8 @@ const TrendPoster = ({ item }) => {
                     <span>
                       {item.vote_average}{" "}
                       <span>
-                        <FaRegStar />{" "}
-                      </span>{" "}
+                        <FaRegStar />
+                      </span>
                     </span>
                   </p>
                 </div>
