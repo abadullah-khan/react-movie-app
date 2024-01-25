@@ -6,13 +6,17 @@ const HomeSlice = createSlice({
     trendPosterList: [],
     trendingList: [],
     latestTrailerList: [],
+    isLoading: false,
   },
   reducers: {
-    getTrendPosterApi() {},
+    getTrendPosterApi(state) {
+      state.isLoading = true;
+    },
     setTrendPosterApi(state, action) {
       state.trendPosterList = action.payload.results
         .filter((result) => result.vote_average > 8)
         .slice(0, 5);
+      state.isLoading = false;
     },
     getTrendingApi(action) {
       return action;

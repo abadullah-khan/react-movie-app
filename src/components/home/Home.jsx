@@ -19,7 +19,7 @@ const TrendPoster = lazy(() => import("./components/TrendPoster"));
 
 export const Home = () => {
   const dispatch = useDispatch();
-  const { trendPosterList } = useSelector((state) => state.home);
+  const { trendPosterList, isLoading } = useSelector((state) => state.home);
   const { searchedList } = useSelector((state) => state.search);
   useEffect(() => {
     dispatch(getTrendPosterApi());
@@ -28,20 +28,22 @@ export const Home = () => {
   return (
     <>
       <div className="posterContainer">
-        <Carousel
-          width={"100%"}
-          autoPlay={true}
-          showThumbs={false}
-          infiniteLoop
-          interval={1300}
-          showStatus={false}
-          showArrows={false}
-          className="carousel"
-        >
-          {trendPosterList.map((item) => (
-            <TrendPoster item={item} key={item.id} />
-          ))}
-        </Carousel>
+        {!isLoading && (
+          <Carousel
+            width={"100%"}
+            autoPlay={true}
+            showThumbs={false}
+            infiniteLoop
+            interval={1300}
+            showStatus={false}
+            showArrows={false}
+            className="carousel"
+          >
+            {trendPosterList.map((item) => (
+              <TrendPoster item={item} key={item.id} />
+            ))}
+          </Carousel>
+        )}
       </div>
       {/* <Suspense fallback={<h2>Loading...</h2>}> */}
       <Trending />
