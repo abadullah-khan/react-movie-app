@@ -10,7 +10,9 @@ const HomeSlice = createSlice({
   reducers: {
     getTrendPosterApi() {},
     setTrendPosterApi(state, action) {
-      state.trendPosterList.push(...action.payload.results);
+      state.trendPosterList = action.payload.results
+        .filter((result) => result.vote_average > 8)
+        .slice(0, 5);
     },
     getTrendingApi(action) {
       return action;
