@@ -32,38 +32,48 @@ export const Trending = () => {
       <div className="trendingContainer">
         <div className="trendingStatusContainer">
           <span>Trending</span>
-          <div className="time_window">
+          <div className="linkContainer">
             <span
               onClick={() => timeHandler("day", 0)}
-              className={activeTimeLink === 0 ? "activeTime" : ""}
+              className={activeTimeLink === 0 && "activeLink"}
             >
-              Today
+              <span className={activeTimeLink === 0 && "activeInnerLayer"}>
+                Today
+              </span>
             </span>
             <span
               onClick={() => timeHandler("week", 1)}
-              className={activeTimeLink === 1 ? "activeTime" : ""}
+              className={activeTimeLink === 1 && "activeLink"}
             >
-              This Week
+              <span className={activeTimeLink === 1 && "activeInnerLayer"}>
+                This Week
+              </span>
             </span>
           </div>
-          <div className="media_type">
+          <div className="linkContainer">
             <span
               onClick={() => mediaHandler("all", 0)}
-              className={activeMediaLink === 0 ? "activeMedia" : "deActiveLink"}
+              className={activeMediaLink === 0 && "activeLink"}
             >
-              All
+              <span className={activeMediaLink === 0 && "activeInnerLayer"}>
+                All
+              </span>
             </span>
             <span
               onClick={() => mediaHandler("movie", 1)}
-              className={activeMediaLink === 1 ? "activeMedia" : "deActiveLink"}
+              className={activeMediaLink === 1 && "activeLink"}
             >
-              Movie
+              <span className={activeMediaLink === 1 && "activeInnerLayer"}>
+                Movie
+              </span>
             </span>
             <span
               onClick={() => mediaHandler("tv", 2)}
-              className={activeMediaLink === 2 ? "activeMedia" : "deActiveLink"}
+              className={activeMediaLink === 2 && "activeLink"}
             >
-              Tv
+              <span className={activeMediaLink === 2 && "activeInnerLayer"}>
+                Tv
+              </span>
             </span>
           </div>
         </div>
