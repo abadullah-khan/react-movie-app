@@ -2,7 +2,7 @@
   height: 10vh;
   text-transform: capitalize;
   display: flex;
-  background: linear-gradient(45deg, rgb(173, 216, 230), rgb(54, 87, 98));
+  background: linear-gradient(45deg, antiquewhite, lightblue);
   justify-content: space-between;
   align-items: center;
   padding: 0 2rem;
@@ -26,7 +26,7 @@
     flex: 0.5;
     justify-content: center;
     align-items: center;
-    background-color: lightblue;
+    background-color: antiquewhite;
     height: 30px;
     border-radius: 10px;
     overflow: hidden;
@@ -59,7 +59,7 @@
     display: flex;
     gap: 0.7rem;
     > span {
-      color: lightblue;
+      color: rgb(54, 87, 98);
       font-size: 1.5rem;
       font-weight: 500;
       display: inline-block;
@@ -86,7 +86,7 @@
         }
       }
       > a {
-        color: lightblue;
+        color: rgb(54, 87, 98);
         font-size: 1.5rem;
         font-weight: 500;
         text-decoration: none;
