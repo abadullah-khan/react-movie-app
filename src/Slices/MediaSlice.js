@@ -7,6 +7,7 @@ const MediaSlice = createSlice({
     isLoading: false,
     currentPage: 1,
     mediaType: null,
+    totalPages: null,
   },
   reducers: {
     getMediaData(state, action) {
@@ -14,19 +15,25 @@ const MediaSlice = createSlice({
       state.mediaType = action.payload.mediaType;
     },
     setMediaData(state, action) {
-      state.isLoading = false;
-      state.data.push(...action.payload.results);
+      state.data = action.payload.results;
       state.data.map((movie) => (movie.mediaType = state.mediaType));
-      state.currentPage = action.payload.page + 1;
+      state.currentPage = action.payload.page;
+      state.totalPages =
+        action.payload.total_pages > 500 ? 500 : action.payload.total_pages;
+      state.isLoading = false;
+    },
+    setPage(state, action) {
+      state.currentPage = action.payload;
     },
     resetMediaState(state) {
       state.currentPage = 1;
       state.data = [];
       state.mediaType = null;
+      state.totalPages = null;
     },
   },
 });
 
-export const { getMediaData, setMediaData, resetMediaState } =
+export const { setPage, getMediaData, setMediaData, resetMediaState } =
   MediaSlice.actions;
 export default MediaSlice.reducer;
