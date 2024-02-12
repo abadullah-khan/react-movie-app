@@ -28,6 +28,12 @@ const SearchSlice = createSlice({
 
       state.isLoading = false;
       state.data.push(...results);
+      state.data = state.data.map((movie) => ({
+        ...movie,
+        mediaType: movie.media_type,
+      }));
+      state.totalPages =
+        action.payload.total_pages > 500 ? 500 : action.payload.total_pages;
       state.currentPage = page += 1;
       state.totalPages = total_pages;
       state.hasMore = state.currentPage > total_pages ? false : true;
