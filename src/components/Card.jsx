@@ -15,9 +15,9 @@ export const Card = ({ item }) => {
 
   return (
     <>
-      <div className="home_card">
+      <div ref={ref} className="card">
         <NavLink to={`/movie/${item.mediaType}/${item.id}`}>
-          <div ref={ref} className="imgContainer">
+          <div className="imgContainer">
             {isVisible && (
               <img
                 src={`https://image.tmdb.org/t/p/original${
@@ -27,9 +27,9 @@ export const Card = ({ item }) => {
               />
             )}
           </div>
-          <div className="details">
+          <div className="detailsContainer">
             <h3>{item.title ? item.title : item.name}</h3>
-            <div className="runTime">
+            <div className="details">
               <span>
                 {item.release_date ? item.release_date : item.first_air_date}
               </span>
