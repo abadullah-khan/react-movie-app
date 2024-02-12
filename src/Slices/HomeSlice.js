@@ -24,6 +24,10 @@ const HomeSlice = createSlice({
     setTrendingApi(state, action) {
       state.trendingList = [];
       state.trendingList.push(...action.payload.results);
+      state.trendingList = state.trendingList.map((movie) => ({
+        ...movie,
+        mediaType: movie.media_type,
+      }));
     },
   },
 });
