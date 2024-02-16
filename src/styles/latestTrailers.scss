@@ -72,6 +72,10 @@
     margin-bottom: 0.5rem;
     transition: all 0.2s ease;
     position: relative;
+    &:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 15px 2px lightblue;
+    }
     > img {
       display: block;
       height: 100%;
@@ -97,6 +101,11 @@
     color: antiquewhite;
     text-decoration: none;
     text-align: center;
+    &:hover,
+    &:active {
+      text-decoration: underline;
+      color: lightblue;
+    }
     > .trailerTitle {
       font-size: 1.6rem;
       display: -webkit-box;
@@ -176,8 +185,4 @@
       }
     }
   }
-}
-.trailerCard:hover > .imageContainer {
-  transform: scale(1.05);
-  box-shadow: 0 0 15px 2px antiquewhite;
 }
