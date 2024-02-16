@@ -50,25 +50,25 @@ const LatestTrailers = () => {
         <div className="contentTypeContainer">
           <span
             onClick={() => contentHandler(0)}
-            className={activeContent === 0 && "activeContent"}
+            className={activeContent === 0 ? "activeContent" : ""}
           >
-            <span className={activeContent === 0 && "activeInnerLayer"}>
+            <span className={activeContent === 0 ? "activeInnerLayer" : ""}>
               Upcoming
             </span>
           </span>
           <span
             onClick={() => contentHandler(1)}
-            className={activeContent === 1 && "activeContent"}
+            className={activeContent === 1 ? "activeContent" : ""}
           >
-            <span className={activeContent === 1 && "activeInnerLayer"}>
+            <span className={activeContent === 1 ? "activeInnerLayer" : ""}>
               Popular
             </span>
           </span>
           <span
             onClick={() => contentHandler(2)}
-            className={activeContent === 2 && "activeContent"}
+            className={activeContent === 2 ? "activeContent" : ""}
           >
-            <span className={activeContent === 2 && "activeInnerLayer"}>
+            <span className={activeContent === 2 ? "activeInnerLayer" : ""}>
               Streaming
             </span>
           </span>

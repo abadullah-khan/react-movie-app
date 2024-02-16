@@ -35,17 +35,17 @@ export const Trending = () => {
           <div className="linkContainer">
             <span
               onClick={() => timeHandler("day", 0)}
-              className={activeTimeLink === 0 && "activeLink"}
+              className={activeTimeLink === 0 ? "activeLink" : ""}
             >
-              <span className={activeTimeLink === 0 && "activeInnerLayer"}>
+              <span className={activeTimeLink === 0 ? "activeInnerLayer" : ""}>
                 Today
               </span>
             </span>
             <span
               onClick={() => timeHandler("week", 1)}
-              className={activeTimeLink === 1 && "activeLink"}
+              className={activeTimeLink === 1 ? "activeLink" : ""}
             >
-              <span className={activeTimeLink === 1 && "activeInnerLayer"}>
+              <span className={activeTimeLink === 1 ? "activeInnerLayer" : ""}>
                 This Week
               </span>
             </span>
@@ -53,25 +53,25 @@ export const Trending = () => {
           <div className="linkContainer">
             <span
               onClick={() => mediaHandler("all", 0)}
-              className={activeMediaLink === 0 && "activeLink"}
+              className={activeMediaLink === 0 ? "activeLink" : ""}
             >
-              <span className={activeMediaLink === 0 && "activeInnerLayer"}>
+              <span className={activeMediaLink === 0 ? "activeInnerLayer" : ""}>
                 All
               </span>
             </span>
             <span
               onClick={() => mediaHandler("movie", 1)}
-              className={activeMediaLink === 1 && "activeLink"}
+              className={activeMediaLink === 1 ? "activeLink" : ""}
             >
-              <span className={activeMediaLink === 1 && "activeInnerLayer"}>
+              <span className={activeMediaLink === 1 ? "activeInnerLayer" : ""}>
                 Movie
               </span>
             </span>
             <span
               onClick={() => mediaHandler("tv", 2)}
-              className={activeMediaLink === 2 && "activeLink"}
+              className={activeMediaLink === 2 ? "activeLink" : ""}
             >
-              <span className={activeMediaLink === 2 && "activeInnerLayer"}>
+              <span className={activeMediaLink === 2 ? "activeInnerLayer" : ""}>
                 Tv
               </span>
             </span>
