@@ -44,11 +44,14 @@
           > h1 {
             font-size: 3.5rem;
             font-weight: 600;
-            color: white;
+            // color: white;
+            color: lightblue;
           }
           .runTime {
             p {
-              color: white;
+              // color: white;
+              color: lightblue;
+
               text-transform: capitalize;
             }
             width: 100%;
@@ -83,9 +86,12 @@
             border: none;
           }
           p {
-            color: white;
+            // color: white;
+            color: lightblue;
             span {
-              color: white;
+              // color: white;
+              color: lightblue;
+
               font-size: 1.3rem;
             }
           }
