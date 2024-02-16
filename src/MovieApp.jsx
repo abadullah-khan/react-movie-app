@@ -17,6 +17,7 @@ import "./styles/tvShows.scss";
 import "./styles/search.scss";
 import "./styles/videoCard.scss";
 import "./styles/pagination.scss";
+import "./styles/latestTrailers.scss";
 import { Search } from "./components/Search";
 
 const Header = lazy(() =>

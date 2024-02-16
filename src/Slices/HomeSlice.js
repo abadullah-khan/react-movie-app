@@ -5,8 +5,8 @@ const HomeSlice = createSlice({
   initialState: {
     trendPosterList: [],
     trendingList: [],
-    latestTrailerList: [],
     isLoading: false,
+    latestTrailers: [],
   },
   reducers: {
     getTrendPosterApi(state) {
@@ -18,8 +18,8 @@ const HomeSlice = createSlice({
         .slice(0, 5);
       state.isLoading = false;
     },
-    getTrendingApi(action) {
-      return action;
+    getTrendingApi(state) {
+      state.isLoading = true;
     },
     setTrendingApi(state, action) {
       state.trendingList = [];
@@ -29,6 +29,14 @@ const HomeSlice = createSlice({
         mediaType: movie.media_type,
       }));
     },
+    getLatestTrailers(state) {
+      state.isLoading = true;
+    },
+    setLatestTrailers(state, action) {
+      state.latestTrailers = [];
+      state.latestTrailers = [...action.payload];
+      state.isLoading = false;
+    },
   },
 });
 
@@ -37,5 +45,7 @@ export const {
   setTrendPosterApi,
   getTrendingApi,
   setTrendingApi,
+  getLatestTrailers,
+  setLatestTrailers,
 } = HomeSlice.actions;
 export default HomeSlice.reducer;

@@ -8,6 +8,7 @@ import { getTrendPosterApi } from "../../Slices/HomeSlice";
 import { Search } from "../Search";
 import { Trending } from "./components/Trending";
 import { FaRegStar } from "react-icons/fa";
+import LatestTrailers from "./components/LatestTrailers";
 
 const TrendPoster = lazy(() => import("./components/TrendPoster"));
 
@@ -48,6 +49,7 @@ export const Home = () => {
       {/* <Suspense fallback={<h2>Loading...</h2>}> */}
       <Trending />
       {/* </Suspense> */}
+      <LatestTrailers />
     </>
   );
 };

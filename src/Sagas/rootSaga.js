@@ -5,6 +5,7 @@ import { Home_TrendingSaga } from "./Home_TrendingSaga";
 import { MovieSaga } from "./MovieSaga";
 import { MediaSaga } from "./MediaSaga";
 import { SearchSaga } from "./SearchSaga";
+import { LatestTrailerSaga } from "./LatestTrailerSaga";
 
 export function* rootSaga() {
   yield all([
@@ -13,5 +14,6 @@ export function* rootSaga() {
     MovieSaga(),
     MediaSaga(),
     SearchSaga(),
+    LatestTrailerSaga(),
   ]);
 }
