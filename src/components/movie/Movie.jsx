@@ -117,18 +117,14 @@ export const Movie = () => {
                 <p>{movieDetails.overview}</p>
               </div>
               <div className="btnContainer">
-                <span onClick={() => handleWatchTrailer()}>
-                  <span>
-                    <CiPlay1 />
-                  </span>
+                <button onClick={() => handleWatchTrailer()}>
+                  <CiPlay1 />
                   Play Trailer
-                </span>
-                <span onClick={() => handleIMDBApp()}>
-                  <span>
-                    <RxOpenInNewWindow />
-                  </span>
+                </button>
+                <button onClick={() => handleIMDBApp()}>
+                  <RxOpenInNewWindow />
                   IMDB Link
-                </span>
+                </button>
               </div>
             </div>
           </div>
