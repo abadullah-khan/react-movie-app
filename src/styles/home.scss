@@ -44,12 +44,11 @@
           > h1 {
             font-size: 3.5rem;
             font-weight: 600;
-            color: lightblue;
+            color: antiquewhite;
           }
           .runTime {
             p {
-              color: lightblue;
-
+              color: antiquewhite;
               text-transform: capitalize;
             }
             width: 100%;
@@ -84,9 +83,9 @@
             border: none;
           }
           p {
-            color: lightblue;
+            color: antiquewhite;
             span {
-              color: lightblue;
+              color: antiquewhite;
               font-size: 1.3rem;
             }
           }
@@ -97,7 +96,7 @@
 }
 .posterContainer:hover .posterImg img {
   transform: scale(1.025);
-  filter: brightness(0.25);
+  filter: blur(10px) brightness(0.35);
 }
 .posterContainer:hover a {
   opacity: 1;
