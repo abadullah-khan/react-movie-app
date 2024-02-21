@@ -37,83 +37,77 @@ export const Movie = () => {
     <>
       {isPresent && movieDetails.id ? (
         <div className="movieDetailContainer">
-          <div className="posterDetailsContainer">
-            <div className="posterContainer">
-              <img
-                src={`https://image.tmdb.org/t/p/original${
-                  movieDetails.backdrop_path
-                    ? movieDetails.backdrop_path
-                    : movieDetails.poster_path
-                }`}
-                alt=""
-              />
-            </div>
-            <div className="overlay">
-              <div className="imgContainer">
-                <img
-                  src={`https://image.tmdb.org/t/p/original${
-                    movieDetails.poster_path
-                      ? movieDetails.poster_path
-                      : movieDetails.backdrop_path
-                  }`}
-                  alt=""
-                />
+          <img
+            src={`https://image.tmdb.org/t/p/original${
+              movieDetails.backdrop_path
+                ? movieDetails.backdrop_path
+                : movieDetails.poster_path
+            }`}
+            alt=""
+            className="backdropImg"
+          />
+          <div className="overlay">
+            <img
+              src={`https://image.tmdb.org/t/p/original${
+                movieDetails.poster_path
+                  ? movieDetails.poster_path
+                  : movieDetails.backdrop_path
+              }`}
+              alt=""
+              className="posterImg"
+            />
+            <div className="details">
+              <div className="details_header">
+                <h2>
+                  {movieDetails.title ? movieDetails.title : movieDetails.name}{" "}
+                  <span>
+                    (
+                    {movieDetails.release_date
+                      ? movieDetails.release_date.slice(0, 4)
+                      : movieDetails.first_air_date.slice(0, 4)}
+                    )
+                  </span>{" "}
+                </h2>
+                <div className="detail">
+                  <p>
+                    {movieDetails.release_date
+                      ? movieDetails.release_date
+                      : movieDetails.first_air_date}
+                    ({movieDetails.production_countries[0].iso_3166_1})
+                  </p>
+                  |
+                  <p>
+                    {movieDetails.genres.map((item) => {
+                      return <span key={item.id}>{item.name}, </span>;
+                    })}
+                  </p>
+                  |
+                  <p>
+                    {movieDetails.runtime
+                      ? movieDetails.runtime
+                      : movieDetails.episode_run_time.map((time) => time)}
+                    mins
+                  </p>
+                </div>
               </div>
-              <div className="details">
-                <div className="details_header">
-                  <h2>
-                    {movieDetails.title
-                      ? movieDetails.title
-                      : movieDetails.name}{" "}
-                    <span>
-                      (
-                      {movieDetails.release_date
-                        ? movieDetails.release_date.slice(0, 4)
-                        : movieDetails.first_air_date.slice(0, 4)}
-                      )
-                    </span>{" "}
-                  </h2>
-                  <div className="detail">
-                    <p>
-                      {movieDetails.release_date
-                        ? movieDetails.release_date
-                        : movieDetails.first_air_date}
-                      ({movieDetails.production_countries[0].iso_3166_1})
-                    </p>
-                    |
-                    <p>
-                      {movieDetails.genres.map((item) => {
-                        return <span key={item.id}>{item.name}, </span>;
-                      })}
-                    </p>
-                    |
-                    <p>
-                      {movieDetails.runtime
-                        ? movieDetails.runtime
-                        : movieDetails.episode_run_time.map((time) => time)}
-                      mins
-                    </p>
-                  </div>
-                </div>
-                <div className="tagline">{movieDetails.tagline}</div>
-                <div className="overview">
-                  Overview
-                  <p>{movieDetails.overview}</p>
-                </div>
-                <div className="btnContainer">
-                  <span onClick={() => handleWatchTrailer()}>
-                    <span>
-                      <CiPlay1 />
-                    </span>
-                    Play Trailer
+              <div className="tagline">{movieDetails.tagline}</div>
+              <div className="overview">
+                Overview
+                <p>{movieDetails.overview}</p>
+              </div>
+              <div className="btnContainer">
+                <span onClick={() => handleWatchTrailer()}>
+                  <span>
+                    <CiPlay1 />
                   </span>
-                  <span onClick={() => handleIMDBApp()}>
-                    <span>
-                      <RxOpenInNewWindow />
-                    </span>
-                    IMDB Link
+                  Play Trailer
+                </span>
+                <span onClick={() => handleIMDBApp()}>
+                  <span>
+                    <RxOpenInNewWindow />
                   </span>
-                </div>
+                  IMDB Link
+                </span>
               </div>
             </div>
           </div>
