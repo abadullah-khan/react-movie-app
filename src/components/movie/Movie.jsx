@@ -56,7 +56,7 @@ export const Movie = () => {
               alt=""
               className="posterImg"
             />
-            <div className="details">
+            <div className="summary">
               <div className="details_header">
                 <h2>
                   {movieDetails.title ? movieDetails.title : movieDetails.name}{" "}
