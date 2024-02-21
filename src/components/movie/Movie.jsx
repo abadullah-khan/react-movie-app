@@ -77,12 +77,6 @@ export const Movie = () => {
                   </p>
                   |
                   <p>
-                    {movieDetails.genres.map((item) => {
-                      return <span key={item.id}>{item.name}, </span>;
-                    })}
-                  </p>
-                  |
-                  <p>
                     {movieDetails.runtime
                       ? movieDetails.runtime
                       : movieDetails.episode_run_time.map((time) => time)}
