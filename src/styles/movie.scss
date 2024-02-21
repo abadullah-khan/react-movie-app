@@ -32,7 +32,6 @@
       flex-direction: column;
       gap: 0.5rem;
       > .titleContainer {
-        color: whitesmoke;
         > .title {
           background: linear-gradient(
             45deg,
@@ -51,6 +50,7 @@
           }
         }
         > .keyDetails {
+          color: antiquewhite;
           border: 1px solid transparent;
           border-image: linear-gradient(
               45deg,
