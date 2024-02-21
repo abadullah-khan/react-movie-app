@@ -70,6 +70,7 @@ export const Movie = () => {
                 </h2>
                 <div className="keyDetails">
                   <p>
+                    Release-date :-
                     {movieDetails.release_date
                       ? movieDetails.release_date
                       : movieDetails.first_air_date}
@@ -77,6 +78,7 @@ export const Movie = () => {
                   </p>
                   |
                   <p>
+                    Run-time :-
                     {movieDetails.runtime
                       ? movieDetails.runtime
                       : movieDetails.episode_run_time.map((time) => time)}
