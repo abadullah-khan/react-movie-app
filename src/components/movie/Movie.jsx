@@ -76,6 +76,11 @@ export const Movie = () => {
                 </h2>
                 <div className="keyDetails">
                   <p>
+                    Rating :-
+                    <span>{movieDetails.vote_average.toFixed(1)}</span>
+                  </p>
+                  |
+                  <p>
                     Release-date :-
                     <span>
                       {movieDetails.release_date
