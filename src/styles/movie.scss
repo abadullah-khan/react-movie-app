@@ -33,7 +33,15 @@
       gap: 0.5rem;
       > .titleContainer {
         color: whitesmoke;
-        h2 {
+        > .title {
+          background: linear-gradient(
+            45deg,
+            rgb(255, 153, 0),
+            rgb(218, 42, 174)
+          );
+          background-clip: text;
+          -webkit-text-fill-color: transparent;
+          color: transparent;
           font-size: 3.3rem;
           font-weight: 600;
           span {

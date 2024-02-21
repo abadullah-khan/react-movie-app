@@ -58,7 +58,7 @@ export const Movie = () => {
             />
             <div className="summary">
               <div className="titleContainer">
-                <h2>
+                <h2 className="title">
                   {movieDetails.title ? movieDetails.title : movieDetails.name}{" "}
                   <span>
                     (
