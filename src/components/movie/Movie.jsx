@@ -24,6 +24,12 @@ export const Movie = () => {
     }
   }, [movieDetails]);
 
+  const runTime = (data) => {
+    const hours = Math.floor(data / 60);
+    const minutes = data % 60;
+    return `${hours}hr ${minutes > 0 ? `${minutes}min` : ""}`;
+  };
+
   const handleWatchTrailer = () => {
     const trailer = movieDetails.videos.results.find(
       (video) => video.type === "Trailer"
@@ -81,12 +87,7 @@ export const Movie = () => {
                   |
                   <p>
                     Run-time :-
-                    <span>
-                      {movieDetails.runtime
-                        ? movieDetails.runtime
-                        : movieDetails.episode_run_time.map((time) => time)}
-                      mins
-                    </span>
+                    <span>{runTime(movieDetails.runtime)}</span>
                   </p>
                 </div>
               </div>
