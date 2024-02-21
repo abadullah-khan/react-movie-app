@@ -68,7 +68,7 @@ export const Movie = () => {
                     )
                   </span>
                 </h2>
-                <div className="detail">
+                <div className="keyDetails">
                   <p>
                     {movieDetails.release_date
                       ? movieDetails.release_date

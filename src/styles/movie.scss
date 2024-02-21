@@ -50,7 +50,14 @@
             font-weight: 200;
           }
         }
-        > .detail {
+        > .keyDetails {
+          border: 1px solid transparent;
+          border-image: linear-gradient(
+              45deg,
+              rgb(255, 153, 0),
+              rgb(218, 42, 174)
+            )
+            1/1/1px stretch;
           font-size: 1.6rem;
           display: flex;
           align-items: center;
