@@ -96,7 +96,13 @@ export const Movie = () => {
                   |
                   <p>
                     Run-time :-
-                    <span>{runTime(movieDetails.runtime)}</span>
+                    <span>
+                      {runTime(
+                        movieDetails.runtime
+                          ? movieDetails.runtime
+                          : movieDetails.episode_run_time.map((time) => time)
+                      )}
+                    </span>
                   </p>
                 </div>
               </div>
