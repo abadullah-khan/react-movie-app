@@ -128,7 +128,7 @@ export const Movie = () => {
               </div>
             </div>
           </div>
-          <div className="extraDetailsContainer">
+          <div className="detailsContainer">
             <div className="scrolls">
               <div className="castContainer">
                 <div className="sectionName">Top Billed Cast</div>
