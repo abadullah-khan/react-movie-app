@@ -6,6 +6,7 @@ import { Card } from "../Card";
 import { VideoCard } from "../VideoCard";
 import { CiPlay1 } from "react-icons/ci";
 import { RxOpenInNewWindow } from "react-icons/rx";
+import { FaStar } from "react-icons/fa";
 
 export const Movie = () => {
   const [popularVideos, setPopularVideos] = useState(true);
@@ -77,7 +78,10 @@ export const Movie = () => {
                 <div className="keyDetails">
                   <p>
                     Rating :-
-                    <span>{movieDetails.vote_average.toFixed(1)}</span>
+                    <span>
+                      {movieDetails.vote_average.toFixed(1)}
+                      <FaStar />
+                    </span>
                   </p>
                   |
                   <p>
