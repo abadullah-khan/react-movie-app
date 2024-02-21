@@ -74,7 +74,7 @@
     position: relative;
     &:hover {
       transform: scale(1.05);
-      box-shadow: 0 0 15px 2px lightblue;
+      box-shadow: 0 0 15px 2px antiquewhite;
     }
     > img {
       display: block;
@@ -104,7 +104,6 @@
     &:hover,
     &:active {
       text-decoration: underline;
-      color: lightblue;
     }
     > .trailerTitle {
       font-size: 1.6rem;
