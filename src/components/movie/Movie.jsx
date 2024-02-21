@@ -101,6 +101,11 @@ export const Movie = () => {
                 </div>
               </div>
               <div className="tagline">{movieDetails.tagline}</div>
+              <div className="genres">
+                {movieDetails.genres.map((genre) => (
+                  <span id={genre.id}>{genre.name}</span>
+                ))}
+              </div>
               <div className="overview">
                 Overview
                 <p>{movieDetails.overview}</p>
