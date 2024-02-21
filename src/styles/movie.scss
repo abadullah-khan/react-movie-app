@@ -58,14 +58,18 @@
               rgb(218, 42, 174)
             )
             1/1/1px stretch;
-          font-size: 1.6rem;
           display: flex;
           align-items: center;
           gap: 0.5rem;
           p {
+            font-size: 1.2rem;
             font-weight: 300;
             display: flex;
+            align-items: baseline;
             gap: 0.5rem;
+            > span {
+              font-size: 1.6rem;
+            }
           }
         }
       }
