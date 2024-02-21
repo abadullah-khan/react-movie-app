@@ -103,10 +103,11 @@
         }
       }
       > .btnContainer {
-        color: white;
         display: flex;
         justify-content: space-around;
         > button {
+          color: antiquewhite;
+          font-size: 1.6rem;
           display: flex;
           align-items: center;
           gap: 0.3rem;
