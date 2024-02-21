@@ -59,14 +59,14 @@ export const Movie = () => {
             <div className="summary">
               <div className="titleContainer">
                 <h2 className="title">
-                  {movieDetails.title ? movieDetails.title : movieDetails.name}{" "}
+                  {movieDetails.title ? movieDetails.title : movieDetails.name}
                   <span>
                     (
                     {movieDetails.release_date
                       ? movieDetails.release_date.slice(0, 4)
                       : movieDetails.first_air_date.slice(0, 4)}
                     )
-                  </span>{" "}
+                  </span>
                 </h2>
                 <div className="detail">
                   <p>
