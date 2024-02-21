@@ -71,18 +71,22 @@ export const Movie = () => {
                 <div className="keyDetails">
                   <p>
                     Release-date :-
-                    {movieDetails.release_date
-                      ? movieDetails.release_date
-                      : movieDetails.first_air_date}
-                    ({movieDetails.production_countries[0].iso_3166_1})
+                    <span>
+                      {movieDetails.release_date
+                        ? movieDetails.release_date
+                        : movieDetails.first_air_date}
+                      ({movieDetails.production_countries[0].iso_3166_1})
+                    </span>
                   </p>
                   |
                   <p>
                     Run-time :-
-                    {movieDetails.runtime
-                      ? movieDetails.runtime
-                      : movieDetails.episode_run_time.map((time) => time)}
-                    mins
+                    <span>
+                      {movieDetails.runtime
+                        ? movieDetails.runtime
+                        : movieDetails.episode_run_time.map((time) => time)}
+                      mins
+                    </span>
                   </p>
                 </div>
               </div>
