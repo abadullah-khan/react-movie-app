@@ -1,0 +1,44 @@
+import React, { useEffect, useState } from "react";
+import { useInView } from "react-intersection-observer";
+
+const Cast = ({ movieDetails }) => {
+  return (
+    <section className="castContainer">
+      <div className="sectionName">Top Billed Cast</div>
+      <div className="cardWrapper">
+        {movieDetails.credits.cast.slice(0, 15).map((item) => (
+          <CastCard item={item} />
+        ))}
+      </div>
+    </section>
+  );
+};
+export default Cast;
+
+const CastCard = ({ item }) => {
+  const { ref, inView } = useInView({ threshold: 0 });
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    if (inView) {
+      setIsVisible(true);
+    }
+  }, [inView]);
+  return (
+    <div className="castCard" key={item.id} ref={ref}>
+      <div className="imgContainer">
+        {isVisible && (
+          <img
+            src={`https://image.tmdb.org/t/p/original${item.profile_path}`}
+            alt=""
+          />
+        )}
+      </div>
+      <div className="about">
+        <div className="name">{item.name}</div>
+        <div className="character">{item.character}</div>
+      </div>
+    </div>
+  );
+};
+export { CastCard };

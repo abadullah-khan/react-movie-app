@@ -7,6 +7,7 @@ import { VideoCard } from "../VideoCard";
 import { CiPlay1 } from "react-icons/ci";
 import { RxOpenInNewWindow } from "react-icons/rx";
 import { FaStar } from "react-icons/fa";
+import Cast from "./components/Cast";
 
 export const Movie = () => {
   const [popularVideos, setPopularVideos] = useState(true);
@@ -130,27 +131,7 @@ export const Movie = () => {
           </div>
           <div className="detailsContainer">
             <div className="scrolls">
-              <div className="castContainer">
-                <div className="sectionName">Top Billed Cast</div>
-                <div className="cardWrapper">
-                  {movieDetails.credits.cast.slice(0, 10).map((item) => {
-                    return (
-                      <div className="castCard" key={item.id}>
-                        <div className="imgContainer">
-                          <img
-                            src={`https://image.tmdb.org/t/p/original${item.profile_path}`}
-                            alt=""
-                          />
-                        </div>
-                        <div className="about">
-                          <div className="name">{item.name}</div>
-                          <div className="character">{item.character}</div>
-                        </div>
-                      </div>
-                    );
-                  })}
-                </div>
-              </div>
+              <Cast movieDetails={movieDetails} />
               <hr />
               <div className="mediaWrapper">
                 <div className="header">
