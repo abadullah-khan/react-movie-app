@@ -4,7 +4,7 @@ import { useInView } from "react-intersection-observer";
 const Cast = ({ movieDetails }) => {
   return (
     <section className="castContainer">
-      <div className="sectionName">Top Billed Cast</div>
+      <span className="sectionName">Top Billed Cast</span>
       <div className="cardWrapper">
         {movieDetails.credits.cast.slice(0, 15).map((item) => (
           <CastCard item={item} />

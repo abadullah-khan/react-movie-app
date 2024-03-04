@@ -148,6 +148,14 @@
       > .castContainer {
         > .sectionName {
           font-size: 2rem;
+          background: linear-gradient(
+            45deg,
+            rgb(255, 153, 0),
+            rgb(218, 42, 174)
+          );
+          background-clip: text;
+          -webkit-text-fill-color: transparent;
+          color: transparent;
         }
         > .cardWrapper {
           display: flex;
@@ -156,7 +164,17 @@
           padding: 1rem 0.2rem;
           > .castCard {
             border-radius: 10px;
-            box-shadow: 1px 1px 5px 0px grey, -1px -1px 5px 0px grey;
+            box-shadow: 0 0 5px 2px rgb(54, 87, 98);
+            background: linear-gradient(75deg, lightblue 0%, antiquewhite 100%);
+            transition: all 0.2s ease;
+            &:hover {
+              box-shadow: 0 0 15px 2px rgb(54, 87, 98);
+              background: linear-gradient(
+                75deg,
+                antiquewhite 0%,
+                lightblue 100%
+              );
+            }
             > .imgContainer {
               border-radius: 10px 10px 0 0;
               overflow: hidden;
@@ -174,9 +192,17 @@
               font-size: 1.2rem;
               > .name {
                 font-weight: 500;
+                color: rgb(54, 87, 98);
               }
               > .character {
-                color: dimgray;
+                background: linear-gradient(
+                  45deg,
+                  rgb(255, 153, 0),
+                  rgb(218, 42, 174)
+                );
+                background-clip: text;
+                -webkit-text-fill-color: transparent;
+                color: transparent;
               }
             }
           }
