@@ -134,7 +134,7 @@ export const Movie = () => {
               <hr />
               <Videos movieDetails={movieDetails} />
               <hr />
-              {movieDetails.recommendations.results.length !== 0 ? (
+              {movieDetails.recommendations.results.length > 0 && (
                 <div className="recommendedMoviesWrapper">
                   <div className="header">Recommendations</div>
                   <div className="movieCardContainer">
@@ -143,8 +143,6 @@ export const Movie = () => {
                     ))}
                   </div>
                 </div>
-              ) : (
-                ""
               )}
             </div>
             <aside>
