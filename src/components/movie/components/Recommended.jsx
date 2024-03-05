@@ -4,8 +4,8 @@ import { Card } from "../../Card";
 const Recommended = ({ movieDetails }) => {
   return (
     <div className="recommendedWrapper">
-      <div className="sectionName">Recommendations</div>
-      <div className="movieCardContainer">
+      <span className="sectionName">Recommendations</span>
+      <div className="cardContainer">
         {movieDetails.recommendations.results.map((item) => (
           <Card item={item} />
         ))}
