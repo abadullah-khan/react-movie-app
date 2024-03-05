@@ -8,6 +8,7 @@ import { RxOpenInNewWindow } from "react-icons/rx";
 import { FaStar } from "react-icons/fa";
 import Cast from "./components/Cast";
 import Videos from "./components/Videos";
+import Recommended from "./components/Recommended";
 
 export const Movie = () => {
   const dispatch = useDispatch();
@@ -135,14 +136,7 @@ export const Movie = () => {
               <Videos movieDetails={movieDetails} />
               <hr />
               {movieDetails.recommendations.results.length > 0 && (
-                <div className="recommendedMoviesWrapper">
-                  <div className="header">Recommendations</div>
-                  <div className="movieCardContainer">
-                    {movieDetails.recommendations.results.map((item) => (
-                      <Card item={item} />
-                    ))}
-                  </div>
-                </div>
+                <Recommended movieDetails={movieDetails} />
               )}
             </div>
             <aside>
