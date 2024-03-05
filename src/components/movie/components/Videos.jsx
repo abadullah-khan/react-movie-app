@@ -6,7 +6,7 @@ const Videos = ({ movieDetails }) => {
 
   return (
     <div className="videosContainer">
-      <div className="header">
+      <div className="videosHeader">
         <div className="sectionName">Media</div>
         <span
           className={popularVideos ? "active" : ""}
