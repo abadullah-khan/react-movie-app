@@ -5,7 +5,7 @@ const Videos = ({ movieDetails }) => {
   const [popularVideos, setPopularVideos] = useState(true);
 
   return (
-    <div className="mediaWrapper">
+    <div className="videosContainer">
       <div className="header">
         <div className="sectionName">Media</div>
         <span
