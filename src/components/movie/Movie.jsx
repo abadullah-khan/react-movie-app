@@ -3,14 +3,13 @@ import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getMovieApi } from "../../Slices/MovieSlice";
 import { Card } from "../Card";
-import { VideoCard } from "../VideoCard";
 import { CiPlay1 } from "react-icons/ci";
 import { RxOpenInNewWindow } from "react-icons/rx";
 import { FaStar } from "react-icons/fa";
 import Cast from "./components/Cast";
+import Videos from "./components/Videos";
 
 export const Movie = () => {
-  const [popularVideos, setPopularVideos] = useState(true);
   const dispatch = useDispatch();
   const { id, mediaType } = useParams();
   useEffect(() => {
@@ -133,42 +132,7 @@ export const Movie = () => {
             <div className="scrolls">
               <Cast movieDetails={movieDetails} />
               <hr />
-              <div className="mediaWrapper">
-                <div className="header">
-                  <div className="sectionName">Media</div>
-                  <span
-                    className={popularVideos ? "active" : ""}
-                    onClick={() => setPopularVideos(true)}
-                  >
-                    Most Popular
-                  </span>
-                  <span
-                    className={popularVideos ? "" : "active"}
-                    onClick={() => setPopularVideos(false)}
-                  >
-                    Videos
-                  </span>
-                </div>
-                {popularVideos ? (
-                  <div className="videoCardWrapper">
-                    {movieDetails.videos.results.map((video) =>
-                      video.official === true ||
-                      video.type === "Teaser" ||
-                      video.type === "Trailer" ? (
-                        <VideoCard item={video} />
-                      ) : (
-                        ""
-                      )
-                    )}
-                  </div>
-                ) : (
-                  <div className="videoCardWrapper">
-                    {movieDetails.videos.results.map((video) => {
-                      return <VideoCard item={video} />;
-                    })}
-                  </div>
-                )}
-              </div>
+              <Videos movieDetails={movieDetails} />
               <hr />
               {movieDetails.recommendations.results.length !== 0 ? (
                 <div className="recommendedMoviesWrapper">
