@@ -3,7 +3,7 @@ import { Card } from "../../Card";
 
 const Recommended = ({ movieDetails }) => {
   return (
-    <div className="recommendedMoviesWrapper">
+    <div className="recommendedWrapper">
       <div className="header">Recommendations</div>
       <div className="movieCardContainer">
         {movieDetails.recommendations.results.map((item) => (
