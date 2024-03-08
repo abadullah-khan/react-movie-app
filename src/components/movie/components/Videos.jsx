@@ -8,18 +8,20 @@ const Videos = ({ movieDetails }) => {
     <div className="videosContainer">
       <div className="videosHeader">
         <span className="sectionName">Media</span>
-        <span
-          className={popularVideos ? "active" : ""}
-          onClick={() => setPopularVideos(true)}
-        >
-          Most Popular
-        </span>
-        <span
-          className={popularVideos ? "" : "active"}
-          onClick={() => setPopularVideos(false)}
-        >
-          Videos
-        </span>
+        <div className="buttonContainer">
+          <span
+            className={popularVideos ? "active" : ""}
+            onClick={() => setPopularVideos(true)}
+          >
+            Most Popular
+          </span>
+          <span
+            className={popularVideos ? "" : "active"}
+            onClick={() => setPopularVideos(false)}
+          >
+            Videos
+          </span>
+        </div>
       </div>
       {popularVideos ? (
         <div className="videoCardWrapper">
