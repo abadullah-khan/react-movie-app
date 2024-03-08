@@ -211,10 +211,8 @@
       > .videosContainer {
         > .videosHeader {
           display: flex;
-          justify-content: unset;
-          height: auto;
-          padding: 0;
-          background: none;
+          align-items: center;
+          gap: 2rem;
           > .sectionName {
             margin-right: 2rem;
             font-weight: 400;
