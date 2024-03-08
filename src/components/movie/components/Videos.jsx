@@ -9,18 +9,18 @@ const Videos = ({ movieDetails }) => {
       <div className="videosHeader">
         <span className="sectionName">Media</span>
         <div className="buttonContainer">
-          <span
+          <button
             className={popularVideos ? "active" : ""}
             onClick={() => setPopularVideos(true)}
           >
             Most Popular
-          </span>
-          <span
+          </button>
+          <button
             className={popularVideos ? "" : "active"}
             onClick={() => setPopularVideos(false)}
           >
             Videos
-          </span>
+          </button>
         </div>
       </div>
       {popularVideos ? (
