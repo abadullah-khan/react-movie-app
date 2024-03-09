@@ -141,50 +141,52 @@ export const Movie = () => {
             <aside>
               <div className="extraKeyDetailsContainer">
                 <div className="extraKeyDetails">
-                  <span>Status</span>
-                  <span>{movieDetails.status}</span>
+                  <span className="keyTitle">Status</span>
+                  <span className="keyDetail">{movieDetails.status}</span>
                 </div>
                 {movieDetails.networks && (
                   <div className="extraKeyDetails">
-                    <span>Network</span>
+                    <span className="keyTitle">Network</span>
                     {movieDetails.networks.map((network) => (
-                      <span> {network.name}</span>
+                      <span className="keyDetail">{network.name}</span>
                     ))}
                   </div>
                 )}
                 {movieDetails.type && (
                   <div className="extraKeyDetails">
-                    <span>Type</span>
-                    <span>{movieDetails.type}</span>
+                    <span className="keyTitle">Type</span>
+                    <span className="keyDetail">{movieDetails.type}</span>
                   </div>
                 )}
                 <div className="extraKeyDetails">
-                  <span>Original Language</span>
-                  <span>{movieDetails.original_language}</span>
+                  <span className="keyTitle">Original Language</span>
+                  <span className="keyDetail">
+                    {movieDetails.original_language}
+                  </span>
                 </div>
                 {movieDetails.budget && (
                   <div className="extraKeyDetails">
-                    <span>Budget</span>
-                    <span>{movieDetails.budget}</span>
+                    <span className="keyTitle">Budget</span>
+                    <span className="keyDetail">{movieDetails.budget}</span>
                   </div>
                 )}
                 {movieDetails.revenue && (
                   <div className="extraKeyDetails">
-                    <span>Revenue</span>
-                    <span>{movieDetails.revenue}</span>
+                    <span className="keyTitle">Revenue</span>
+                    <span className="keyDetail">{movieDetails.revenue}</span>
                   </div>
                 )}
                 <div className="extraKeyDetails">
-                  <span>Keywords</span>
-                  <span>
+                  <span className="keyTitle">Keywords</span>
+                  <div className="keyDetail">
                     {movieDetails.keywords.keywords
                       ? movieDetails.keywords.keywords.map((keyword) => (
-                          <p>{keyword.name}</p>
+                          <span className="keys">{keyword.name}</span>
                         ))
                       : movieDetails.keywords.results.map((keyword) => (
-                          <p>{keyword.name}</p>
+                          <span className="keys">{keyword.name}</span>
                         ))}
-                  </span>
+                  </div>
                 </div>
               </div>
               <hr />
