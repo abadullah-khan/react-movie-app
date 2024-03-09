@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getMovieApi } from "../../Slices/MovieSlice";
-import { Card } from "../Card";
 import { CiPlay1 } from "react-icons/ci";
 import { RxOpenInNewWindow } from "react-icons/rx";
 import { FaStar } from "react-icons/fa";
