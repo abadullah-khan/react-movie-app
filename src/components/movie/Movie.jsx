@@ -144,43 +144,35 @@ export const Movie = () => {
                   <span>Status</span>
                   <span>{movieDetails.status}</span>
                 </div>
-                {movieDetails.networks ? (
+                {movieDetails.networks && (
                   <div className="extraKeyDetails">
                     <span>Network</span>
                     {movieDetails.networks.map((network) => (
                       <span> {network.name}</span>
                     ))}
                   </div>
-                ) : (
-                  ""
                 )}
-                {movieDetails.type ? (
+                {movieDetails.type && (
                   <div className="extraKeyDetails">
                     <span>Type</span>
                     <span>{movieDetails.type}</span>
                   </div>
-                ) : (
-                  ""
                 )}
                 <div className="extraKeyDetails">
                   <span>Original Language</span>
                   <span>{movieDetails.original_language}</span>
                 </div>
-                {movieDetails.budget ? (
+                {movieDetails.budget && (
                   <div className="extraKeyDetails">
                     <span>Budget</span>
                     <span>{movieDetails.budget}</span>
                   </div>
-                ) : (
-                  ""
                 )}
-                {movieDetails.revenue ? (
+                {movieDetails.revenue && (
                   <div className="extraKeyDetails">
                     <span>Revenue</span>
                     <span>{movieDetails.revenue}</span>
                   </div>
-                ) : (
-                  ""
                 )}
                 <div className="extraKeyDetails">
                   <span>Keywords</span>
