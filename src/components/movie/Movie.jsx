@@ -139,13 +139,13 @@ export const Movie = () => {
               )}
             </div>
             <aside>
-              <p>
-                <div>
+              <div className="extraKeyDetailsContainer">
+                <div className="extraKeyDetails">
                   <span>Status</span>
                   <span>{movieDetails.status}</span>
                 </div>
                 {movieDetails.networks ? (
-                  <div>
+                  <div className="extraKeyDetails">
                     <span>Network</span>
                     {movieDetails.networks.map((network) => (
                       <span> {network.name}</span>
@@ -155,19 +155,19 @@ export const Movie = () => {
                   ""
                 )}
                 {movieDetails.type ? (
-                  <div>
+                  <div className="extraKeyDetails">
                     <span>Type</span>
                     <span>{movieDetails.type}</span>
                   </div>
                 ) : (
                   ""
                 )}
-                <div>
+                <div className="extraKeyDetails">
                   <span>Original Language</span>
                   <span>{movieDetails.original_language}</span>
                 </div>
                 {movieDetails.budget ? (
-                  <div>
+                  <div className="extraKeyDetails">
                     <span>Budget</span>
                     <span>{movieDetails.budget}</span>
                   </div>
@@ -175,14 +175,14 @@ export const Movie = () => {
                   ""
                 )}
                 {movieDetails.revenue ? (
-                  <div>
+                  <div className="extraKeyDetails">
                     <span>Revenue</span>
                     <span>{movieDetails.revenue}</span>
                   </div>
                 ) : (
                   ""
                 )}
-                <div>
+                <div className="extraKeyDetails">
                   <span>Keywords</span>
                   <span>
                     {movieDetails.keywords.keywords
@@ -194,7 +194,7 @@ export const Movie = () => {
                         ))}
                   </span>
                 </div>
-              </p>
+              </div>
               <hr />
               {movieDetails.belongs_to_collection ? (
                 <div className="belongingContainer">
