@@ -6,8 +6,8 @@ const MovieSlice = createSlice({
     movieDetails: {},
   },
   reducers: {
-    getMovieApi(action) {
-      return action;
+    getMovieApi(state) {
+      state.movieDetails = {};
     },
     setMovieApi(state, action) {
       state.movieDetails = action.payload;
