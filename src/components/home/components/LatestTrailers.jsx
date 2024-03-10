@@ -4,6 +4,7 @@ import { getLatestTrailers } from "../../../Slices/HomeSlice";
 import { useInView } from "react-intersection-observer";
 import { FaPlay } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
+import VideoPlayer from "../../VideoPlayer";
 
 const LatestTrailers = () => {
   const { isLoading, latestTrailers } = useSelector((state) => state.home);
@@ -115,29 +116,14 @@ const TrailerCard = ({ trailer }) => {
           </div>
         </div>
       )}
-
+      <VideoPlayer
+        currentTrailerDetails={currentTrailerDetails}
+        setCurrentTrailerDetails={setCurrentTrailerDetails}
+      />
       <NavLink to={`/movie/${trailer.mediaType}/${trailer.movieId}`}>
         <h3 className="trailerTitle">{trailer.title}</h3>
         <div className="trailerName">{trailer.name}</div>
       </NavLink>
-      {currentTrailerDetails && (
-        <div className="videoContainer">
-          <div className="videoWrapper">
-            <div className="videoDetails">
-              <h3>
-                {currentTrailerDetails.title} | {currentTrailerDetails.name}
-              </h3>
-              <button onClick={() => setCurrentTrailerDetails(null)}>
-                Close
-              </button>
-            </div>
-            <iframe
-              src={`https://www.youtube.com/embed/${currentTrailerDetails.key}`}
-              frameBorder="0"
-            ></iframe>
-          </div>
-        </div>
-      )}
     </div>
   );
 };
