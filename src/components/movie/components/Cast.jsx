@@ -7,7 +7,7 @@ const Cast = ({ movieDetails }) => {
       <span className="sectionName">Top Billed Cast</span>
       <div className="cardWrapper">
         {movieDetails.credits.cast.slice(0, 15).map((item) => (
-          <CastCard item={item} />
+          <CastCard item={item} key={item.id} />
         ))}
       </div>
     </section>

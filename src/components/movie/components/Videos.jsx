@@ -31,7 +31,7 @@ const Videos = ({ movieDetails }) => {
             video.official === true ||
             video.type === "Teaser" ||
             video.type === "Trailer" ? (
-              <VideoCard video={video} />
+              <VideoCard video={video} key={video.id} />
             ) : (
               ""
             )
@@ -40,7 +40,7 @@ const Videos = ({ movieDetails }) => {
       ) : (
         <div className="videoCardWrapper">
           {movieDetails.videos.results.map((result) => {
-            return <VideoCard video={result} />;
+            return <VideoCard video={result} key={result.id} />;
           })}
         </div>
       )}

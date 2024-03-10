@@ -37,7 +37,6 @@ export const Movie = () => {
     const trailer = movieDetails.videos.results.find(
       (video) => video.type === "Trailer"
     );
-    // window.open(`https://www.youtube.com/watch?v=${trailer.key}`);
     setCurrentTrailerDetails(trailer);
   };
 
@@ -113,7 +112,7 @@ export const Movie = () => {
               <div className="tagline">{movieDetails.tagline}</div>
               <div className="genres">
                 {movieDetails.genres.map((genre) => (
-                  <span id={genre.id}>{genre.name}</span>
+                  <span key={genre.id}>{genre.name}</span>
                 ))}
               </div>
               <div className="overview">
@@ -185,10 +184,14 @@ export const Movie = () => {
                   <div className="keyDetail">
                     {movieDetails.keywords.keywords
                       ? movieDetails.keywords.keywords.map((keyword) => (
-                          <span className="keys">{keyword.name}</span>
+                          <span className="keys" key={keyword.id}>
+                            {keyword.name}
+                          </span>
                         ))
                       : movieDetails.keywords.results.map((keyword) => (
-                          <span className="keys">{keyword.name}</span>
+                          <span className="keys" key={keyword.id}>
+                            {keyword.name}
+                          </span>
                         ))}
                   </div>
                 </div>

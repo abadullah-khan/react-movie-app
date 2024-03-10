@@ -10,7 +10,7 @@ const Recommended = ({ movieDetails }) => {
       <div className="cardContainer">
         {movieDetails.recommendations.results.map((rec) => {
           const item = { ...rec, mediaType: mediaType };
-          return <Card item={item} />;
+          return <Card item={item} key={rec.id} />;
         })}
       </div>
     </div>
