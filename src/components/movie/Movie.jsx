@@ -8,6 +8,7 @@ import { FaStar } from "react-icons/fa";
 import Cast from "./components/Cast";
 import Videos from "./components/Videos";
 import Recommended from "./components/Recommended";
+import VideoPlayer from "../VideoPlayer";
 
 export const Movie = () => {
   const dispatch = useDispatch();
@@ -19,6 +20,7 @@ export const Movie = () => {
   const movie = useSelector((state) => state.movie);
   const { movieDetails } = movie;
   const [isPresent, setIsPresent] = useState(false);
+  const [currentTrailerDetails, setCurrentTrailerDetails] = useState(null);
   useEffect(() => {
     if (movieDetails && movieDetails.id) {
       setIsPresent(true);
@@ -35,8 +37,10 @@ export const Movie = () => {
     const trailer = movieDetails.videos.results.find(
       (video) => video.type === "Trailer"
     );
-    window.open(`https://www.youtube.com/watch?v=${trailer.key}`);
+    // window.open(`https://www.youtube.com/watch?v=${trailer.key}`);
+    setCurrentTrailerDetails(trailer);
   };
+
   const handleIMDBApp = () => {
     window.open(`https://www.imdb.com/title/${movieDetails.imdb_id}`);
   };
@@ -213,6 +217,10 @@ export const Movie = () => {
       ) : (
         ""
       )}
+      <VideoPlayer
+        currentTrailerDetails={currentTrailerDetails}
+        setCurrentTrailerDetails={setCurrentTrailerDetails}
+      />
     </>
   );
 };
