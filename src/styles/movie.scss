@@ -191,6 +191,8 @@
             > .about {
               padding: 0.5rem;
               font-size: 1.2rem;
+              display: flex;
+              flex-direction: column;
               > .name {
                 font-weight: 500;
                 color: rgb(54, 87, 98);

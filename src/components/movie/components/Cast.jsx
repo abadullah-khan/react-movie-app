@@ -35,8 +35,8 @@ const CastCard = ({ item }) => {
         )}
       </div>
       <div className="about">
-        <div className="name">{item.name}</div>
-        <div className="character">{item.character}</div>
+        <span className="name">{item.name}</span>
+        <span className="character">{item.character}</span>
       </div>
     </div>
   );
