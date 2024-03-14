@@ -1,6 +1,6 @@
 import React, { lazy, Suspense } from "react";
 import { Provider, useSelector } from "react-redux";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { HashRouter, Routes, Route } from "react-router-dom";
 
 import { Store } from "./Store";
 // import { Home, Header, Movie,Movies TvShows } from "./Constants";
@@ -41,7 +41,7 @@ const Media = lazy(() =>
 export const MovieApp = () => {
   return (
     <Provider store={Store}>
-      <BrowserRouter>
+      <HashRouter>
         <>
           <Header />
           <Suspense fallback={<div>Wait im being loaded</div>}>
@@ -53,7 +53,7 @@ export const MovieApp = () => {
             </Routes>
           </Suspense>
         </>
-      </BrowserRouter>
+      </HashRouter>
     </Provider>
   );
 };
