@@ -1,4 +1,4 @@
-import React, { lazy, Suspense } from "react";
+import React, { lazy, Suspense, useEffect } from "react";
 import { Provider, useSelector } from "react-redux";
 import { HashRouter, Routes, Route } from "react-router-dom";
 
@@ -37,8 +37,10 @@ const Media = lazy(() =>
     default: module.Media,
   }))
 );
-
 export const MovieApp = () => {
+  useEffect(() => {
+    alert("Note: It's not responsive yet, so please open it on desktop.");
+  }, []);
   return (
     <Provider store={Store}>
       <HashRouter>
