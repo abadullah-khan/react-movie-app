@@ -15,7 +15,11 @@ export const Card = ({ item }) => {
 
   return (
     <>
-      <div ref={ref} className="card">
+      <div
+        ref={ref}
+        className="card"
+        title={item.title ? item.title : item.name}
+      >
         <NavLink to={`/movie/${item.mediaType}/${item.id}`}>
           <div className="imgContainer">
             {isVisible && (
