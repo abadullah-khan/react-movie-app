@@ -101,7 +101,11 @@ const TrailerCard = ({ trailer }) => {
   }, [inView]);
 
   return (
-    <div ref={ref} className="trailerCard">
+    <div
+      ref={ref}
+      className="trailerCard"
+      title={trailer.title ? trailer.title : trailer.name}
+    >
       {isVisible && (
         <div
           className="imageContainer"
