@@ -6,7 +6,7 @@ import { FaRegStar } from "react-icons/fa";
 const TrendPoster = ({ item }) => {
   return (
     <>
-      <div className="wrapper">
+      <div className="wrapper" title={item.title ? item.title : item.name}>
         <div className="posterImg">
           <img
             src={`https://image.tmdb.org/t/p/original${item.backdrop_path}`}
